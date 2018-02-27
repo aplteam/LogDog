@@ -1,0 +1,6 @@
+# Refresh rate
+
+By default the refresh rate is 500 milli seconds. On a machine that is slow (or very busy) you might 
+find that this inappropriate. Change it to 1000 (one second) or something close to that.
+
+Going lower than 50 milli seconds however does not make any sense even on a very fast machine.

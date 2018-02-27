@@ -1,0 +1,7 @@
+ OnKeyPressInViewer←{
+     n←Get_n↑⍵
+     keys←⊂⍵[4 5]
+     keys∊n.∆Parms.keys.(AltF4 Escape CtrlW):n.∆form.Close
+     allow←n.∆Parms.keys.(Home End CtrlEnd CtrlHome PgDn PgUp CtrlF F3 AltC AltB AltZ AltR)
+     keys∊allow ⍝ Ignore verything else
+ }

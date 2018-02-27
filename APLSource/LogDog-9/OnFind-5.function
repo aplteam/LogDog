@@ -1,0 +1,9 @@
+ OnFind←{
+     rf←↑⍵
+     n←Get_n rf
+     n.SB_Info.Text←''
+     _←1 ToogleFreeze n
+     n.Freeze.State←1
+     n←Find n
+     ⍬
+ }

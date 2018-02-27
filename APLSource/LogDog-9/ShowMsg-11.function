@@ -1,0 +1,10 @@
+ ShowMsg←{
+     ⍺←'LogDog Message'
+     ∆←''
+     ∆,←⊂'Caption'⍺
+     ∆,←⊂'Text'⍵
+     ∆,←⊂'Btns' 'OK'
+     ∆,←⊂'Style' 'Msg'
+     rf←⎕NEW'MsgBox'∆
+     ⍬⊣⎕DQ rf
+ }

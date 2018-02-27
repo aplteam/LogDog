@@ -1,0 +1,19 @@
+ {∆Ref}←source CompileHelpFileInto folder;A;ps;icon
+⍝ Compiles the help file into `folder` which, if empty, defaults to
+⍝ Help\Files\. `source` is the namespace hosting the help system in question.
+⍝ Use this to prepare for calling `ViewHelpFolder`.
+⍝ The result is normally used by test cases only.
+ A←EstablishRef'APLTreeUtils'     ⍝ This function is an official method, so it must be prepared...
+ :If 0∊⍴folder
+     folder←'help\'
+ :EndIf
+ folder←A.Lowercase folder
+ folder,←(~(¯1↑folder)∊'\/')/'\'
+ ps←CreateParms ⍬
+ ps.source←source
+ ps.folderName←folder,'files\'
+ ∆Ref←CompileHelpFile ps
+ icon←Icons.CreateIcon #
+ icon.File←folder,'Files\help.ico'
+ icon.FileWrite
+⍝Done

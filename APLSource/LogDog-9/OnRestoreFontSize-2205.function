@@ -1,0 +1,5 @@
+ OnRestoreFontSize←{
+     rf←↑⍵
+     n←Get_n rf
+     n.∆Parms.DefaultFontSize CreateFont n
+ }

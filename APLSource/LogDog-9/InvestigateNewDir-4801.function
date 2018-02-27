@@ -1,0 +1,21 @@
+ {r}←InvestigateNewDir n;n2;∆;msg
+ r←⍬
+ n2←⎕NS''
+ ∆←''
+ ∆,←⊂'Caption' 'Select Directory to be watched'
+ ∆,←⊂'BrowseFor' 'Directory'
+ n2.BrowseBox←n.∆form.⎕NEW'BrowseBox'∆
+ n2.BrowseBox.n←n2
+ n2.BrowseBox.onFileBoxOK←'OnSelectOkButtonInSelectDir'
+ n2.BrowseBox.onFileBoxCancel←'OnSelectCancelButtonInSelectDir'
+ DQ n2.BrowseBox
+ :If ~0∊⍴n2.BrowseBox.∆Result
+     :If r←GetYoungestFileFromFolder n n2.BrowseBox.∆Result
+         OpenFile n
+         n.∆CurrentDir←n2.BrowseBox.∆Result
+     :Else
+         CreateFolderTimer n n2.BrowseBox.∆Result
+         TellAboutTimer n2.BrowseBox.∆Result
+     :EndIf
+     AddRecentFolder n n2.BrowseBox.∆Result
+ :EndIf

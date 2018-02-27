@@ -1,0 +1,8 @@
+ OnSmallerFont←{
+     rf←↑⍵
+     n←Get_n rf
+     sizeList←GetAllSizesFor n.Font
+     ind←0⌈¯1+(sizeList≥n.Font.Size)⍳1
+     newSize←ind⊃sizeList
+     newSize CreateFont n
+ }

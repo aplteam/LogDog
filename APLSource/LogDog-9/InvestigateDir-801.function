@@ -1,0 +1,6 @@
+ {r}←InvestigateDir n
+ :If 0∊⍴n.∆CurrentDir
+     r←InvestigateNewDir n
+ :Else
+     r←InvestigateCurrentDir n
+ :EndIf

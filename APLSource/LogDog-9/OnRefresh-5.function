@@ -1,0 +1,16 @@
+ r←OnRefresh msg;rf;n
+ r←⍬
+ rf←↑msg
+ {}rf.Close ⍬                     ⍝ Close the timer
+ n←Get_n rf
+ :If 0=n.OpenFile.Active
+     :Trap 1 18
+         {}ReadLastRecords n
+         {}CreateWatchDog n
+     :Case 1
+         {}InitialReadOfLogfile n
+     :Case 18
+         {}CreateWatchDog n       ⍝ Nothing to do here. May be later...
+     :EndTrap
+ :EndIf
+⍝Done

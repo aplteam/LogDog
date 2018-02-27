@@ -1,0 +1,5 @@
+ OnInvestigateDir←{
+     rf←↑⍵
+     n←Get_n rf
+     InvestigateDir n
+ }

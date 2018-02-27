@@ -1,0 +1,13 @@
+ {help}←{testFlag}ViewHelp n;parms
+ testFlag←{0<⎕NC ⍵:⍎⍵ ⋄ 0}'testFlag'
+ parms←##.Markdown2Help.CreateParms ⍬
+ parms.source←⎕THIS.Help
+ parms.helpAbout←'LogDog' '' 'Written by Kai Jaeger'
+ parms.helpCaption←'LogDog'
+ help←##.Markdown2Help.New parms
+ :If 0=testFlag
+     {}DQ help
+ :EndIf
+ :If ~(⊂n)∊''⍬
+     n.∆Help←help
+ :EndIf

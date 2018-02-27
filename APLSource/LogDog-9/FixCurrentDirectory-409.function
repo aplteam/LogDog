@@ -1,0 +1,8 @@
+ {r}←FixCurrentDirectory filename
+ r←⍬
+ :If 0∊⍴⎕WSID
+ :AndIf ~0∊⍴filename
+     {}##.FilesAndDirs.Cd ¯1↓↑⎕NPARTS filename
+ :Else
+     ##.FilesAndDirs.PolishCurrentDir
+ :EndIf

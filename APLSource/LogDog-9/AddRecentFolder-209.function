@@ -1,0 +1,10 @@
+ AddRecentFolder←{
+     (n folder)←⍵
+     l←⎕WN n.RecentFolders
+     _←{0::⍬ ⋄ {0::⍬ ⋄ ⍵.Close}¨⍵}⍣(↑0<⍴l)⊣l
+     n.∆RecentFolders∪←⊂folder
+     n.∆RecentFolders←(20⌊⍴,n.∆RecentFolders)↑n.∆RecentFolders
+     n.RecentFolders_←(1+⍳⍴n.∆RecentFolders)n.RecentFolders.{⎕NEW'MenuItem'(⊂'Caption'(' &',(⍕⍺),'. ',⍵))}¨n.∆RecentFolders
+     n.RecentFolders_.onSelect←⊂'OnOpenRecentFolder'
+     ⍬
+ }

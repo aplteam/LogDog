@@ -1,0 +1,6 @@
+ OnOpenFile←{
+     rf←↑⍵
+     n←Get_n rf
+     0=GetFilenameToBeOpened n:⍬
+     OpenFile n
+ }

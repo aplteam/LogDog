@@ -1,0 +1,12 @@
+ GetFilenameFromCommandLine←{
+     args←2 ⎕NQ'#' 'GetCommandLineArgs'
+     args←1↓args
+     args/⍨←'-'≠↑¨args
+     args/⍨←~'='∊¨args
+     args←({'.DWS'≢##.APLTreeUtils.Uppercase ¯4↑⍵}¨args)/args
+     0∊⍴args:''
+     (1=⍴args)∧~'='∊↑args:↑args
+     0∊⍴args←('='∊¨args)/args:''
+     0∊⍴args←('file='{⍺∘≡¨(⍴⍺)↑¨⍵}##.APLTreeUtils.Lowercase args)/args:''
+     (⍴'file=')↓↑args
+ }

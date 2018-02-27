@@ -1,0 +1,7 @@
+ HandleError;⎕TRAP
+ ⎕TRAP←0 'S'
+ ⎕WSID←'Continue'
+ ⎕LX←'⍝',⎕LX
+ 1 ⎕SAVE ⎕WSID
+ Show'An error has occurred. The Help Viewer cannot continue'
+ ⎕OFF

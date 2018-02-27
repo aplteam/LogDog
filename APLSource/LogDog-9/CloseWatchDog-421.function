@@ -1,0 +1,6 @@
+ CloseWatchDog←{
+     n←⍵
+     6::⍬
+     _←n.Timer.Close
+     ⍬
+ }

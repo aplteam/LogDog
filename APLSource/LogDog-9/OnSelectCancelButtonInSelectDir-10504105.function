@@ -1,0 +1,6 @@
+ OnSelectCancelButtonInSelectDir←{
+     rf←↑⍵
+     n←Get_n rf
+     n.BrowseBox.∆Result←''
+     1
+ }

@@ -1,0 +1,4 @@
+ CreateIcon←{
+     parent←⍵
+     ⍎'Markdown2HelpIcon'parent.⎕WC'Icon'('Bits'GetBits)('CMap'GetCMap)('Mask'GetMask)('Style' 'Small')
+ }

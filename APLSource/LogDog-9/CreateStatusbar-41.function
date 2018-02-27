@@ -1,0 +1,28 @@
+ n←CreateStatusbar n;∆;width
+ n.Statusbar←n.∆form.⎕NEW⊂'Statusbar'
+ n.Statusbar.Coord←'Pixel'
+ n.Statusbar.Size[0]+←5
+ n.Statusbar.Posn[0]-←5
+
+ ∆←''
+ ∆,←⊂'Coord' 'Pixel'
+ ∆,←⊂'Size'(⍬ 200)
+ ∆,←⊂'Attach'('Bottom' 'Left' 'Bottom' 'Left')
+ n.SB_FileSize←n.Statusbar.⎕NEW'StatusField'∆
+ n.SB_FileSize.Size[0]+←5
+
+ ∆←''
+ ∆,←⊂'Coord' 'Pixel'
+ ∆,←⊂'Size'(⍬ 200)
+ ∆,←⊂'Attach'('Bottom' 'Left' 'Bottom' 'Left')
+ n.SB_LatestChange←n.Statusbar.⎕NEW'StatusField'∆
+ n.SB_LatestChange.Size[0]+←5
+
+ ∆←''
+ ∆,←⊂'Coord' 'Pixel'
+ width←n.Statusbar.Size[1]-20+1⊃+⌿⊃n.(SB_FileSize SB_LatestChange).Size
+ ∆,←⊂'Size'(⍬ width)
+ ∆,←⊂'Attach'('Bottom' 'Left' 'Bottom' 'Right')
+ n.SB_Info←n.Statusbar.⎕NEW'StatusField'∆
+ n.SB_Info.Size[0]+←5
+⍝Done

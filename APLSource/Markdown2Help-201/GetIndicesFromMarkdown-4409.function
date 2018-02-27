@@ -1,0 +1,10 @@
+ GetIndicesFromMarkdown←{
+     md←A.dlb ⍵
+     0=+/b←'['=↑¨md:''
+     b←b\'[data]:index='''∘{⍺≡(⍴⍺)↑⍵}¨A.Lowercase b/md
+     0=+/b:''
+     indices←¯1↓¨A.dtb¨(⍴'[data]:index=''')↓¨b/md
+     indices←(0<↑¨⍴¨indices)/indices
+     0∊⍴indices:''
+     ∪Index.NormalizeKeywords indices
+ }

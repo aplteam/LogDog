@@ -1,0 +1,8 @@
+ OnClear←{
+     rf←↑⍵
+     n←Get_n rf
+     {1<⍴⍵:0 ⋄ 0∊⍴∊⍵}n.Viewer.Text:⍬
+     n.∆Parms.NoOfRecords←⍎{⍵↑⍨¯1+⍵⍳' '}##.APLTreeUtils.dlb↑¯1↑n.Viewer.Text
+     n.Viewer.Text←⊂''
+     ⍬
+ }

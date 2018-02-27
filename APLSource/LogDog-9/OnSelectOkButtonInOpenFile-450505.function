@@ -1,0 +1,8 @@
+ OnSelectOkButtonInOpenFile←{
+     rf←↑⍵
+     n2←Get_n rf
+     n←Get_n n2.##
+     n.∆Parms.Path←n2.FileBox.Directory
+     n2.FileBox.∆Result←n.∆Parms.Path,'\',n2.FileBox.File
+     1
+ }

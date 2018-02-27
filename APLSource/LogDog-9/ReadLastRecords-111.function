@@ -1,0 +1,43 @@
+ upToDate←ReadLastRecords n;size;buff;fileSize;maxNumberOfBytes;noOfBytes;noOfRecords;maxNoOfRecords
+ ⍝ We read all data that has been written since the last read operation.
+ ⍝ In case the max number of records is exceeded we reduce the number of
+ ⍝ records shown plus 15%.
+ ⍝ Returns a Boolean:
+ ⍝ 0 : We are NOT able to show the latest records because the log file fills up
+ ⍝     faster than we are able to process it.
+ ⍝ 1 : We are up-to-date.
+ fileSize←⎕NSIZE n.∆tno
+ :If fileSize≡n.∆LastFileSize
+     n.SB_FileSize.BCol←0
+     n.∆form.OnTop←0
+     upToDate←1
+ :Else
+     n.∆FileSize←fileSize
+     :If n.Freeze.State
+         n.SB_FileSize.Text←'Log size: ',FormatFileSize n.∆FileSize
+         n.SB_FileSize.BCol←255 0 0
+         upToDate←0
+     :Else
+         maxNumberOfBytes←⌊⎕WA÷10
+         noOfBytes←maxNumberOfBytes⌊fileSize-n.∆ReadLogFrom
+         buff←(⎕NREAD n.∆tno,82,noOfBytes,n.∆ReadLogFrom)
+         upToDate←noOfBytes=⍴buff
+         :If 0<noOfBytes
+             n.∆ReadLogFrom+←noOfBytes
+             buff←CRLF ##.APLTreeUtils.Split buff
+             buff←¯1↓⍣(0∊⍴↑¯1↑buff)⊣buff  ⍝ Drop last if empty
+             noOfRecords←⍴n.Viewer.Text←n.Viewer.Text,buff
+             :If n.∆Parms.NoOfRecords<⍴noOfRecords
+                 maxNoOfRecords←n.∆Parms.NoOfRecords-⌊n.∆Parms.NoOfRecords÷15 ⍝ 15% buffer
+                 n.Viewer.Text←(-maxNoOfRecords)↑n.Viewer.Text
+             :EndIf
+             n.Viewer.SelText←(2⍴1+noOfRecords),¨1
+         :EndIf
+         n.∆LastFileSize←fileSize
+         n.SB_FileSize.BCol←0 255 0
+         n.SB_FileSize.Text←'Log size: ',FormatFileSize n.∆FileSize
+         n.SB_LatestChange.Text←'Last change: ',CurrentDateAndTime QTS
+         n.∆form.OnTop←n.OnTop.State
+     :EndIf
+ :EndIf
+⍝Done

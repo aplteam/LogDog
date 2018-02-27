@@ -1,0 +1,22 @@
+ n←{tryFlag}OpenLogFile n;msg
+ ⍝ Takes care of the (unlikely) case that a log file was just created
+ ⍝ and we therefore have no right to access it yet: in this case we wait
+ ⍝ for a second and then try again. We repeat this up to 5 times.
+ tryFlag←{0<⎕NC ⍵:⍎⍵ ⋄ ¯1}'tryFlag'
+ :If 5>tryFlag
+     :Trap 19
+         n.∆tno←n.∆filename ⎕NTIE 0
+         n.∆LastFileSize←⍬
+         n.∆ReadLogFrom←0
+     :Else
+         ⎕DL 1
+         tryFlag+←1
+         n←tryFlag OpenLogFile n
+     :EndTrap
+ :Else
+     msg←⊂'Could not open:'
+     msg,←⊂n.∆filename
+     msg,←⊂''
+     msg,←⊂'ACCESS ERROR, rc=',⍕⎕EN
+     ShowMsg msg
+ :EndIf

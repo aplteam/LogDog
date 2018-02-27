@@ -1,0 +1,6 @@
+ OnSelectCancelButtonInOpenFile←{
+     rf←↑⍵
+     n←Get_n rf
+     n.FileBox.∆Result←''
+     1
+ }

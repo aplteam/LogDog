@@ -1,0 +1,8 @@
+ TellAboutTimer←{
+     msg←⊂'No log file found in ',⍵
+     msg,←⊂''
+     msg,←⊂'A timer was created in order to check the folder for'
+     msg,←⊂'any log files turning up.'
+     _←ShowMsg msg
+     1:r←⍬
+ }

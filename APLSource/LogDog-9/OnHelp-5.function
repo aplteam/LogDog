@@ -1,0 +1,6 @@
+ OnHelp←{
+     rf←↑⍵
+     n←Get_n rf
+     _←ViewHelp&n
+     ⍬
+ }

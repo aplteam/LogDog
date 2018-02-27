@@ -1,0 +1,7 @@
+ n←CreateGUI(n filename)
+ n←CreateForm n filename
+ n←CreateIcon n
+ n←CreateStatusbar n
+ n←CreateMenubar n filename
+ n←CreateToolbar n n.∆Parms
+⍝Done

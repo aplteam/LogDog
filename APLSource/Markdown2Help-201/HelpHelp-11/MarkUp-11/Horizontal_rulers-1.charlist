@@ -1,0 +1,18 @@
+[DATA]:index='Horizontal rulers ⋄ Rulers, horizontal'
+
+# Horizontal rulers
+
+Specify a horizontal ruler by putting three hyphens after an empty line:
+
+~~~
+
+---
+~~~
+
+There must be nothing else on that line except →[*.Special_attributes]; you can
+for example assign the class "my_hr" to it:
+
+~~~
+
+---{.myhr}
+~~~

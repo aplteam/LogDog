@@ -1,0 +1,16 @@
+ {r}←SearchWithRegEx n;buff;ind;hit
+ r←⍬
+ buff←n.Viewer.Text
+ ind←n.∆Parms.SearchText ⎕S(2 0 1)⍠('Mode' 'L')('IC'(~n.∆Parms.CaseSensitive))⊣buff
+ :If 0∊⍴ind
+     n.Viewer.SelText←2⍴n.Viewer.SelText[0]
+     n.SB_Info.Text←'No hit found'
+ :Else
+     n.∆Parms.Hits←⊖⊃ind
+     hit←,1↑n.∆Parms.Hits
+     n.Viewer.SelText←Highlight hit
+     n.SB_Info.Text←(⍕↑⍴n.∆Parms.Hits),' hit',((1<↑⍴n.∆Parms.Hits)/'s'),' in total'
+     n.∆Parms.Hits←1↓n.∆Parms.Hits
+     n.FindNext.Active←0<↑⍴n.∆Parms.Hits
+ :EndIf
+⍝Done

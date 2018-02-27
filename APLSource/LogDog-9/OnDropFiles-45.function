@@ -1,0 +1,25 @@
+ {r}←OnDropFiles msg;n;rf;dropped
+ r←⍬
+ (rf dropped)←msg[0 2]
+ n←Get_n rf
+ :If 1=⍴dropped             ⍝ Multiple folders are not permitted.
+     :Select ↑1 ⎕NINFO↑dropped
+     :Case 1 ⍝ Directory
+         :If GetYoungestFileFromFolder n(↑dropped)
+             {}0 OpenFile n
+             {}AddRecentFolder n(↑dropped)
+         :Else
+             {}CreateFolderTimer n(↑dropped)
+             {}TellAboutTimer(↑dropped)
+         :EndIf
+     :Case 2 ⍝ Ordinary file
+         n.∆filename←↑dropped
+         {}OpenFile n
+     :Else
+         CreateFolderTimer n(↑dropped)
+         {}TellAboutTimer(↑dropped)
+     :EndSelect
+ :Else
+     {}ShowMsg'Please drop just one file or folder.'
+ :EndIf
+⍝Done

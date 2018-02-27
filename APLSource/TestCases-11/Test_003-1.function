@@ -1,0 +1,17 @@
+ R←Test_003(stopFlag batchFlag);⎕TRAP;n;path;noOf
+⍝ Call LogDog on a "live" log file.
+⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due tothe "batchFlag"
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←∆Failed
+
+ n←1 ##.LogDog.Run ∆Path,'\MyLog.log'
+ ⎕DL 1
+ →GoToTidyUp 9≠n.⎕NC'Viewer'
+ →GoToTidyUp 0=noOf←⍴n.Viewer.Text
+ →GoToTidyUp 0≠n.OpenFile.Active
+ →GoToTidyUp 1≠n.CloseFile.Active
+
+ R←∆OK
+
+∆TidyUp:
+ :Trap 1 6 11 ⋄ {}⎕NQ n.∆form'Close' ⋄ :EndTrap

@@ -1,0 +1,26 @@
+ n←CreateViewer n;∆;rf;rf2;rf3;buff;tno;size;cursorWas
+ ∆←''
+ ∆,←⊂'Coord' 'Pixel'
+ ∆,←⊂'Posn'((2+↑n.Toolbar.Size),0)
+ ∆,←⊂'Size'((n.∆form.Size[0]-+/n.Toolbar.Posn[0],n.Statusbar.Size[0]),n.∆form.Size[1]-2)
+ ∆,←⊂'Style' 'Multi'
+ ∆,←⊂'VScroll' ¯1
+ ∆,←⊂'Visible' 0
+ ∆,←⊂'Attach'('Top' 'Left' 'Bottom' 'Right')
+
+ cursorWas←n.∆form.CursorObj
+ n.∆form.CursorObj←1
+ n.SB_Info.Text←'Loading log file...'
+ n.Viewer←n.∆form.⎕NEW'Edit'∆
+ n.Viewer.Text←,n.Viewer.Text
+ n←CreateFont n
+ ⎕NQ n.∆form'Flush'
+
+ n.Viewer.Size[0]-←4+↑n.Statusbar.Size
+
+ n.SB_Info.Text←''
+ n.Viewer.Visible←1
+ n.Viewer.onKeyPress←'OnKeyPressInViewer'
+ n.∆form.Caption←GetCaption n
+ n.∆form.CursorObj←cursorWas
+⍝Done

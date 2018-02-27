@@ -1,0 +1,28 @@
+ {n}←{testFlag}Run filename;n;⎕TRAP;args
+⍝ `filename` can be empty (then the user might specify a file to be watched via the "Open File" menu command)
+⍝ or a filename (in which case this particular file will be watched) or a folder in which case their are three
+⍝ possibilities:
+⍝ * The folder is empty. Then a watch dog (Timer) is created which will watch that folder for changes.
+⍝ * The folder contains exactly one file. Then this file will be watched.
+⍝ * The folder contains several files. In this case the youngest one will be watched.
+⍝ The left argument is used for test cases only. If it is 1 `⎕DQ` is not executed further down the stack.
+ ⎕IO←0 ⋄ ⎕ML←3
+ ##.FilesAndDirs.PolishCurrentDir
+ {}CheckForRide⍣0⊣4545 1
+ testFlag←{0<⎕NC ⍵:⍎⍵ ⋄ 0}'testFlag'
+ ⎕TRAP←##.HandleError.SetTrap ⍬
+ :If 0∊⍴filename
+     filename←GetFilenameFromCommandLine ⍬
+ :EndIf
+ n←⎕NS''
+ n.∆Parms←Init filename
+ #.⎕SHADOW'ErrorParms'
+ #.ErrorParms←#.HandleError.CreateParms
+ #.ErrorParms.customFns←(⍕⎕THIS),'.ShowError'
+ #.ErrorParms.errorFolder←'expand'#.FilesAndDirs.NormalizePath'%LOCALAPPDATA%\LogDog'
+ ⎕TRAP←##.HandleError.SetTrap'#.ErrorParms'
+ n←CreateGUI n filename
+ GetRecentFilesAndFoldersFromRegistry n
+ testFlag Work n filename
+ {}Shutdown⍣(0=testFlag)⊣n
+⍝Done

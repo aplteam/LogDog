@@ -1,0 +1,21 @@
+[DATA]:index='SALT ⋄ Code managements system ⋄ Storing help pages ⋄ Managing you help system'
+
+# SALT and Markdown2Help
+
+Any Markdown2Help system can and will be managed by SALT in case two pre-conditions are met:
+
+1. The SALT callback is associated with the "Fix" event. To phrase it differently, you have SALT enabled and active for managing stuff.
+
+2. You specify the `→[*.saltFolder]` parameter. This is needed so that Markdown2Help knows where to save the scripts.
+
+
+If these preconditions are met then when you create a new help system by calling `→[*.CreateStub]` you will be asked whether you want 
+this new help system to be managed by SALT. If you answer the question with a "yes" then `CreateStub` will create a folder within 
+the folder `saltFolder` is pointing to with the name of the help system. Within that folder all nodes will be presented as sub folders
+and help pages as \*.dyalog files. Dito for any `→[*.TopicProperties | ∆TopicProperties]` function.
+
+It is also possible to save an already existing help system by calling the method `→[*.SaveHelpSystemWithSalt]`.
+
+Whenever you change, add, rename or delete a help page, or add or delete a node or add a `∆TopicProperties` functions SALT will 
+automatically store the stuff for you.
+

@@ -1,0 +1,12 @@
+ {r}←∆Ref DeleteFromTopicProperties(name parent);result;body
+⍝ Deletes "name" from ∆TopicProiperties.
+ :If r←3=parent.⎕NC'∆TopicProperties'
+     result←parent.⍎'∆TopicProperties ⍬'
+     result⌿⍨←~result[;0]∊⊂name
+     body←⍪GetTopicPropertyTemplate ⍬
+     body⍪←⍪ReformatTopicPropertyResult result
+     parent.⎕FX,body
+     :If 0∊⍴∆Ref TellAcreAboutChange(⍕parent),'.∆TopicProperties'
+         ⎕←'*** acre was told that "∆TopicProperties" was changed but it wasn''t interested.'
+     :EndIf
+ :EndIf

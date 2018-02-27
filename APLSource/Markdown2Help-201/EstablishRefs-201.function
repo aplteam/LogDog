@@ -1,0 +1,4 @@
+ EstablishRefs←{
+     (0=⎕THIS.⎕NC'A'):⍬⊣⎕THIS.A←EstablishRef'APLTreeUtils'
+     ⍬
+ }

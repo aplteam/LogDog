@@ -1,0 +1,22 @@
+ OpenFile←{
+ ⍝ Open whatever is noted on n.∆filename
+     ⍺←1
+     addAsRecentFile←⍺
+     n←⍵
+     n.SB_Info.Text←'Opening log file...'
+     #.CursorObj←1
+     0=OpenLogFile n:⍬⊣(#.CursorObj n.SB_Info.Text)←0 ''
+     n.OpenFile.Active←0
+     n.CloseFile.Active←1
+     n.(Find FindNext).Active←1
+     n.∆form.AcceptFiles←0
+     _←AddRecentFile⍣addAsRecentFile⊣n
+     _←{0∊⍴⍵:⍬ ⋄ {⍬⊣⍵.Active←0}¨⍵}n.RecentFiles_
+     n.ClearLog.Active←1
+     n←CreateViewer n
+     n←PopulateViewer n
+     n←CreateWatchDog n
+     #.CursorObj←0
+     n.SB_Info.Text←''
+     1:r←⍬
+ }

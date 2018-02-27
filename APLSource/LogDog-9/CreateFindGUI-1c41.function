@@ -1,0 +1,96 @@
+ n2←CreateFindGUI n;∆;flag;text
+ n2←⎕NS''
+ n2.∆result←''
+
+ ∆←''
+ ∆,←⊂'Posn'(n.∆form.Posn+50 60)
+ ∆,←⊂'Size'(280 600)
+ ∆,←⊂'Caption' 'Find in Log file'
+ ∆,←⊂'Coord' 'Pixel'
+ ∆,←⊂'Event'(9999 1)
+ ∆,←⊂'Sizeable' 0
+ ∆,←⊂'MaxButton' 0
+ ∆,←⊂'Icon'n.∆form.IconObj
+ n2.∆form←n.∆form.⎕NEW'Form'∆
+ n2.∆form.n←n2
+
+ ∆←''
+ ∆,←⊂'Posn'(15 15)
+ ∆,←⊂'Caption' '&Search for:'
+ n2.Label←n2.∆form.⎕NEW'Label'∆
+
+ ∆←''
+ ∆,←⊂'Posn'((5+↑+⌿⊃n2.Label.(Size Posn)),15)
+ ∆,←⊂'Text'n.∆Parms.SearchText
+ ∆,←⊂'SelText'(1,1+⍴,n.∆Parms.SearchText)
+ ∆,←⊂'Size'(⍬ 570)
+ n2.SearchFor←n2.∆form.⎕NEW'Edit'∆
+ n2.SearchFor.Size[0]-←3
+
+ ∆←''
+ ∆,←⊂'Posn'((10+↑+⌿⊃n2.SearchFor.(Size Posn)),15)
+ ∆,←⊂'Caption' '&Case sensitive'
+ ∆,←⊂'State'n.∆Parms.CaseSensitive
+ ∆,←⊂'Style' 'Check'
+ n2.CaseSensitive←n2.∆form.⎕NEW'Button'∆
+
+ ∆←''
+ ∆,←⊂'Posn'((10+↑+⌿⊃n2.CaseSensitive.(Size Posn)),15)
+ ∆,←⊂'Caption' 'Interpret as Regular &Expression'
+ ∆,←⊂'State'n.∆Parms.RegExSearch
+ ∆,←⊂'Style' 'Check'
+ n2.RegExSearch←n2.∆form.⎕NEW'Button'∆
+
+ ∆←''
+ ∆,←⊂'Posn'((10+↑+⌿⊃n2.RegExSearch.(Size Posn)),15)
+ ∆,←⊂'Caption' 'Freeze updates'
+ ∆,←⊂'State' 1
+ ∆,←⊂'Style' 'Check'
+ ∆,←⊂'Active' 0
+ n2.Freeze←n2.∆form.⎕NEW'Button'∆
+
+⍝ ∆←''
+⍝ ∆,←⊂'Caption' 'Direction'
+⍝ ∆,←⊂'Posn'((5+↑n2.CaseSensitive.Posn),(25+⌈/1⊃¨+⌿¨⊃¨n2.(CaseSensitive RegExSearch Freeze).(Posn Size)))
+⍝ ∆,←⊂'Size'(90 100)
+⍝ n2.SearchDirection←n2.∆form.⎕NEW'Group'∆
+⍝
+⍝ ∆←''
+⍝ flag←1
+⍝ ∆,←⊂'State'(flag)
+⍝ ∆,←⊂'Caption' 'Up'
+⍝ ∆,←⊂'Posn'(25 15)
+⍝ ∆,←⊂'Style' 'Radio'
+⍝ ∆,←⊂'Active' 0
+⍝ n2.SearchUp←n2.SearchDirection.⎕NEW'Button'∆
+⍝
+⍝ ∆←''
+⍝ ∆,←⊂'State'(~flag)
+⍝ ∆,←⊂'Caption' 'Down'
+⍝ ∆,←⊂'Posn'((5+↑+⌿⊃n2.SearchUp.(Posn Size)),15)
+⍝ ∆,←⊂'Style' 'Radio'
+⍝ ∆,←⊂'Active' 0
+⍝ n2.SearchDown←n2.SearchDirection.⎕NEW'Button'∆
+
+ text←'Note that a search will always show the bottom-most hit first.'
+ ∆←''
+ ∆,←⊂'Posn'((20+↑+/⊃n2.Freeze.(Posn Size)),15)
+ ∆,←⊂'Caption'text
+ n2.Label2←n2.∆form.⎕NEW'Label'∆
+
+ ∆←''
+ ∆,←⊂'Caption' 'OK'
+ ∆,←⊂'Size'(⍬ 120)
+ ∆,←⊂'Default' 1
+ n2.OK←n2.∆form.⎕NEW'Button'∆
+ n2.OK.Posn←(n2.∆form.Size[0]-n2.OK.Size[0]+15),15
+ n2.OK.onSelect←'OnOkInSearchForm'
+
+ ∆←''
+ ∆,←⊂'Caption' 'Cancel'
+ ∆,←⊂'Size'(⍬ 120)
+ ∆,←⊂'Cancel' 1
+ n2.Cancel←n2.∆form.⎕NEW'Button'∆
+ n2.Cancel.Posn←(n2.∆form.Size[0]-n2.OK.Size[0]+15),15+1⊃+⌿⊃n2.OK.(Size Posn)
+ n2.Cancel.onSelect←1
+⍝Done

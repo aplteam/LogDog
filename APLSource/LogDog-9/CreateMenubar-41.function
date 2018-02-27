@@ -1,0 +1,102 @@
+ n←CreateMenubar(n filename);TAB;caption;∆;flag
+ TAB←⎕UCS 9
+ n.MB←n.∆form.⎕NEW⊂'Menubar'
+ n.MB.Misc←''
+
+ n.FileMenu←n.MB.⎕NEW'Menu'(⊂'Caption' '&File')
+
+ caption←'Open file...',TAB,'Ctrl+O'
+ ∆←''
+ ∆,←⊂'Caption'caption
+ ∆,←⊂'Accelerator'(79 2)
+ flag←(0∊⍴filename)
+ ∆,←⊂'Active'flag
+ n.OpenFile←n.FileMenu.⎕NEW'MenuItem'∆
+ n.OpenFile.onSelect←'OnOpenFile'
+
+ ∆←''
+ ∆,←⊂'Caption' 'Close file'
+ ∆,←⊂'Active'(~flag)
+ n.CloseFile←n.FileMenu.⎕NEW'MenuItem'∆
+ n.CloseFile.onSelect←'OnCloseFile'
+
+ ∆←''
+ ∆,←⊂'Caption' '&Investigate folder...'
+ ∆,←⊂'Active'flag
+ n.InvestigateDir←n.FileMenu.⎕NEW'MenuItem'∆
+ n.InvestigateDir.onSelect←'OnInvestigateDir'
+
+ n.MB.Misc,←n.FileMenu.⎕NEW⊂'Separator'
+
+ ∆←''
+ ∆,←⊂'Caption' 'Recent files...'
+ n.RecentFiles←n.FileMenu.⎕NEW'Menu'∆
+ n.RecentFiles.onSelect←'OnRecentFiles'
+ n.∆RecentFiles←n.RecentFiles_←''
+
+ ∆←''
+ ∆,←⊂'Caption' 'Recent folders...'
+ n.RecentFolders←n.FileMenu.⎕NEW'Menu'∆
+ n.RecentFolders.onSelect←'OnRecentFolders'
+ n.∆RecentFolders←n.RecentFolders_←''
+ n.∆CurrentDir←''
+
+ n.MB.Misc,←n.FileMenu.⎕NEW⊂'Separator'
+
+ caption←'Quit',TAB,'Alt+F4'
+ n.Quit←n.FileMenu.⎕NEW'MenuItem'(('Caption'caption)('Accelerator'(115 4)))
+ n.Quit.onSelect←'OnQuit'
+
+ n.EditMenu←n.MB.⎕NEW'Menu'(⊂'Caption' 'Edit')
+
+ caption←'Find...',TAB,'Ctrl+F'
+ n.Find←n.EditMenu.⎕NEW'MenuItem'(('Caption'caption)('Accelerator'(70 2)))
+
+ caption←'Find next',TAB,'F3'
+ ∆←''
+ ∆,←⊂'Caption'caption
+ ∆,←⊂'Accelerator'(114 0)
+ ∆,←⊂'Active' 0
+ n.FindNext←n.EditMenu.⎕NEW'MenuItem'∆
+
+ n.Find.onSelect←'OnFind'
+ n.FindNext.onSelect←'OnFindNext'
+
+ n.MB.Misc,←n.EditMenu.⎕NEW⊂'Separator'
+
+ caption←'Increase font size',TAB,'Ctrl++'
+ ∆←''
+ ∆,←⊂'Caption'caption
+ ∆,←⊂'Accelerator'(107 2)
+ n.BiggerFont←n.EditMenu.⎕NEW'MenuItem'∆
+ n.BiggerFont.onSelect←'OnBiggerFont'
+
+ caption←'Increase font size',TAB,'Ctrl+-'
+ ∆←''
+ ∆,←⊂'Caption'caption
+ ∆,←⊂'Accelerator'(109 2)
+ n.SmallerFont←n.EditMenu.⎕NEW'MenuItem'∆
+ n.SmallerFont.onSelect←'OnSmallerFont'
+
+ caption←'Restore default font size',TAB,'Ctrl+0'
+ ∆←''
+ ∆,←⊂'Caption'caption
+ ∆,←⊂'Accelerator'(96 2)
+ n.RestoreFontSize←n.EditMenu.⎕NEW'MenuItem'∆
+ n.RestoreFontSize.onSelect←'OnRestoreFontSize'
+
+ n.HelpMenu←n.MB.⎕NEW'Menu'(⊂'Caption' 'Help')
+
+ caption←'Help',TAB,'F1'
+ ∆←''
+ ∆,←⊂'Caption'caption
+ ∆,←⊂'Accelerator'(112 0)
+ n.Help←n.HelpMenu.⎕NEW'MenuItem'∆
+ n.Help.onSelect←'OnHelp'
+
+ n.MB.Misc,←n.HelpMenu.⎕NEW⊂'Separator'
+
+ caption←'About...'
+ n.About←n.HelpMenu.⎕NEW'MenuItem'(⊂('Caption'caption))
+ n.About.onSelect←'OnAbout'
+⍝Done

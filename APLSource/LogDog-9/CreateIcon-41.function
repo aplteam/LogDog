@@ -1,0 +1,6 @@
+ CreateIcon←{
+     fn←{((DoesExistFile'Files\',⍵)/'Files\'),⍵}'LogDog.ico'
+     n.Icon←⎕NEW'Icon'(,⊂('File'fn))
+     n.∆form.IconObj←n.Icon
+     n
+ }

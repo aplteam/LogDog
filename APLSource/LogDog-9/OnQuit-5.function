@@ -1,0 +1,10 @@
+ OnQuit←{
+     rf←↑⍵
+     n←Get_n rf
+     _←SaveRecentFileAndFolders n
+     _←⎕NQ n.∆form n.∆Parms.CloseEvent
+     _←n.∆form.Close
+     n.∆Closed←1
+     6::⍬
+     ⍬⊣rf.Close
+ }

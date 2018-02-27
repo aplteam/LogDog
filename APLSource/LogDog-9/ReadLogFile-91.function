@@ -1,0 +1,15 @@
+ ReadLogFile←{
+     ⍺←1            ⍝ Number of records
+     n←⍵
+     noOfRecs←⍺
+     size←⎕NSIZE n.∆tno
+     startPoint←0⌈size-⌊⎕WA×0.1  ⍝ Max
+     bytes←⎕NREAD n.∆tno,83,size,startPoint
+     bytes+←256×bytes<0                 ⍝ Make sure it is unsigned
+     bytes↓⍨←3×239 187 191≡3⍴bytes      ⍝ drop a potential UTF-8 marker
+     buff←'UTF-8'⎕UCS bytes
+     buff←##.APLTreeUtils.Split buff
+     buff↓⍨←-0∊⍴(¯1+⍴buff)⊃buff
+     buff←(-n.∆Parms.NoOfRecords⌊⍴buff)↑buff
+     (↓(9 0⍕⍪1+noOfRecs+⍳⍴buff),' '),¨buff
+ }

@@ -1,0 +1,7 @@
+ Get_n←{
+ ⍝ Takes a ref (typically the first element of a callback) and walks up
+ ⍝ the hirarchy until it finds a control that contains a namespace "n"
+ ⍝ which is then returned.
+     (9=⍵.⎕NC'n'):⍵.n
+     ∇ ⍵.##
+ }

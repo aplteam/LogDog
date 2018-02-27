@@ -1,0 +1,4 @@
+ DoesExistFileOrDir←{
+     19 22::0
+     1↑⎕NINFO↑{⍺,⍵}/1 ⎕NPARTS ⍵
+ }

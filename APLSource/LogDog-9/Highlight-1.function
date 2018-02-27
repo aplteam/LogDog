@@ -1,0 +1,5 @@
+ Highlight←{
+⍝ Returns SelText for ⍵ (hit)
+     hit←⍵
+     (1+hit[0]),¨{1+⍵[0],+/⍵}hit[1 2]
+ }

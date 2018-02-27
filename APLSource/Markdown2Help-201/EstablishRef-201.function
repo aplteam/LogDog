@@ -1,0 +1,9 @@
+ EstablishRef←{
+⍝ Takes a name (⍵)(like "APLTreeUtils") and tries to establish a ref
+⍝ pointing to that script by looking everywhere, literally.
+⍝ Whether it tries to find it in # or ⎕SE depends on where it was called from.
+     list←ListNamespaceTree⍎{⍵↑⍨⍵⍳'.'}(⎕IO)⊃{⍵/⍨0<⍬∘⍴¨⍴¨⍵}⎕XSI
+     bool←⍵{⍺∘≡¨{⍵↑⍨-'.'⍳⍨⌽⍵}¨⍕¨⍵}list
+     (0=+/bool):6 ⎕SIGNAL⍨'Could not find "',⍵,'"'
+     (bool⍳1)⊃list
+ }

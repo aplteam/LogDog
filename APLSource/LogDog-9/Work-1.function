@@ -1,0 +1,23 @@
+ {r}←testFlag Work(n filename)
+ r←⍬
+ :If ~0∊⍴filename
+     :If DoesExistFile filename
+         n.∆filename←filename
+         n←OpenLogFile n
+         n←CreateViewer n
+         n←PopulateViewer n
+         n←CreateWatchDog n
+     :ElseIf DoesExistDir filename
+         :If GetYoungestFileFromFolder n filename
+             {}OpenLogFile n
+             n←CreateViewer n
+             n←CreateWatchDog n
+         :Else
+             CreateFolderTimer n filename
+         :EndIf
+     :EndIf
+ :EndIf
+ :If 0=testFlag
+     DQ n.∆form
+ :EndIf
+⍝Done

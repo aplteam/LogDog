@@ -1,0 +1,9 @@
+ GetAllSizesFor←{
+ ⍝ ⍵ ←→ Typically a form
+ ⍝ ⍺ ←→ Name of a font.
+     ⍺←'APL385 Unicode'
+     rf←⍵
+     list←rf.PName∘{⎕NEW'Font'(('PName'⍺)('Size'⍵))}¨⍳50
+     list←∪list.Size
+     list[⍋list]
+ }

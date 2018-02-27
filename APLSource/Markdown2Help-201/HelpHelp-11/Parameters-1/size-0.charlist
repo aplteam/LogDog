@@ -1,0 +1,10 @@
+[DATA]:index='size GUI ⋄ GUI size'
+
+# size
+
+This defaults to `(⍬ ⍬)`
+
+Use this to specify the size of `Markdown2Help`'s GUI when started.
+
+Setting this parameter overrules the standard behaviour, see `→[*.regPath]` for details.
+

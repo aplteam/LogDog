@@ -1,0 +1,17 @@
+ n←CreateForm(n filename);∆
+ ∆←''
+ ∆,←⊂'Coord' 'Pixel'
+ ∆,←⊂'Posn'(30 0)
+ ∆,←⊂'Size'(812 1534)
+ ∆,←⊂'Caption' 'LogDog'
+ ∆,←⊂'AcceptFiles' 1
+ ∆,←⊂'Event'(n.∆Parms.CloseEvent 1)
+ n.∆form←⎕NEW'Form'∆
+ n.∆form.onDropFiles←'OnDropFiles'
+ n.∆form.onClose←'OnQuit'
+ n.∆Closed←0
+
+ n.Tip←⎕NEW⊂'TipField'
+
+ n.∆form.n←n
+⍝Done

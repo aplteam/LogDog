@@ -1,0 +1,16 @@
+ OnOkInSearchForm msg;rf;n2;n
+ rf←↑msg
+ n2←Get_n rf
+ n←Get_n n2.∆form.##
+ :If ~0∊⍴n2.SearchFor.Text
+     {}{2 ⎕NQ ⍵.Freeze'Select'}⍣(↑0=n.Freeze.State)⊣n
+     n.∆Parms.SearchText←n2.SearchFor.Text
+     n.∆Parms.CaseSensitive←n2.CaseSensitive.State
+     n.∆Parms.RegExSearch←n2.RegExSearch.State
+     :If n.∆Parms.RegExSearch
+         SearchWithRegEx n
+     :Else
+         Search n
+     :EndIf
+     {}⎕NQ n2.Cancel'Select'
+ :EndIf

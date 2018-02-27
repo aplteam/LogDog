@@ -1,0 +1,8 @@
+ OnOpenRecentFile←{
+     rf←↑⍵
+     n←Get_n rf
+     n.∆filename←{⍵↓⍨1+⍵⍳' '}##.APLTreeUtils.dlb rf.Caption
+     _←OpenFile n
+     n.InvestigateDir.Active←0
+     ⍬
+ }

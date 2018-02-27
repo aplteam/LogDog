@@ -1,0 +1,8 @@
+ {r}←SaveBitmaps ∆Ref;filename;fn;files;function;fns
+ r←⍬
+ files←'Back_Active.bmp' 'Back_Inactive.bmp' 'Next_Active.bmp' 'Next_Inactive.bmp'
+ fns←'Back1File' 'Back3File' 'Next1File' 'Next3File'
+ :For filename function :InEach files fns
+     fn←∆Ref.p.folderName,'/',filename
+     WriteBytesAs8BitSignedIntegersToFile fn(GUI.Bitmaps.⍎function)
+ :EndFor

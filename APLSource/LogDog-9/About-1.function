@@ -1,0 +1,38 @@
+ About←{
+     n←⍵
+     n2←⎕NS''
+     ∆←''
+     ∆,←⊂'Coord' 'Pixel'
+     ∆,←⊂'Caption' 'About LogDog'
+     ∆,←⊂'IconObj'n.∆form.IconObj
+     ∆,←⊂'MinButton' 0
+     ∆,←⊂'MaxButton' 0
+     ∆,←⊂'Sizeable' 0
+     ∆,←⊂'Posn'(50 60+n.∆form.Posn)
+     ∆,←⊂'Size'(240 240)
+     n2.∆form←n.∆form.⎕NEW'Form'∆
+
+     ∆←''
+     ∆,←⊂'Posn'(15 15)
+     ∆,←⊂'Size'(160 210)
+     ∆,←⊂'Style' 'Multi'
+     info←'' ' LogDog' ' Log file watchdog'
+     info,←⊂' Version ',↑{⍺,' from ',⍵}/1↓Version
+     info,←'' ' Written by Kai Jaeger' ' See http://aplwiki.com/LogDog'
+     info,←''(' Available memory: ',(⍕⌊⎕WA÷1048576),'MB')
+     ∆,←⊂'Text'info
+     ∆,←⊂'ReadOnly' 1
+     n2.About←n2.∆form.⎕NEW'Edit'∆
+
+     ∆←''
+     ∆,←⊂'Caption' 'OK'
+     ∆,←⊂'Size'(⍬ 160)
+     ∆,←⊂'Event'('Select' 1)
+     ∆,←⊂'Default' 1
+     n2.OK←n2.∆form.⎕NEW'Button'∆
+     n2.OK.Size[0]+←7
+     n2.OK.Posn[0]←n2.∆form.Size[0]-n2.OK.Size[0]+10
+     _←⎕NQ n2.OK'GotFocus'
+     _←⎕DQ n2.∆form
+     1:r←⍬
+ }

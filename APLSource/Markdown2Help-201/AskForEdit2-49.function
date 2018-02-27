@@ -1,0 +1,14 @@
+ r←AskForEdit2(varsName result ticks)
+⍝ Asks the user whether she wants to fix the problem.
+⍝ Print some information regarding the lines causing the problem.
+⍝ r is 1 in case the user made an effort to fix the problem , otherwise 0.
+ ⎕←{⍵↑'--- Attention ',⍵⍴'-'}⎕PW-1
+ ⎕←'The help page (variable) "',varsName,' has a problem!'
+ :If 1∊ticks
+     ⎕←'  Odd numbers of ticks (`) in ',(+/ticks),' item(s)'
+ :EndIf
+ ⎕←'Problems:'
+ ⎕←⍪'  '∘,¨{(70⌊⍴,⍵)↑⍵}¨∊¨ticks/result
+ :If r←YesOrNoInSession'Would you like to edit the variable in order to fix the problem? (n=problem is ignored)'
+     EditByQED varsName
+ :EndIf

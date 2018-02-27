@@ -1,0 +1,12 @@
+[parm]:syntaxSugar=1
+# Freeze
+
+Sometimes auto-scrolling is not desirable. See →[Find] as an example. In such cases you can prevent LogDog
+from updating the GUI -- and therefore also autoscrolling -- by ticking the "Freeze" checkbox. The status
+bar shows "Frozen" in red then.
+
+Note that the size of the log file is still updated. In case the size of the log file changes while "Freeze"
+is ticked the background color of the first status bar field -- that shows the size of the log file -- becomes red.
+
+Note that the "Find" command ticks "Freeze" automatically. This is because "Find" does not make sense with it 
+being active.

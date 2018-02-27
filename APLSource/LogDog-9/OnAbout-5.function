@@ -1,0 +1,6 @@
+ OnAbout←{
+     rf←↑⍵
+     n←Get_n rf
+     _←About n
+     ⍬
+ }

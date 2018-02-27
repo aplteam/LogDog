@@ -1,0 +1,54 @@
+ n←CreateToolbar(n parms);∆
+ n.Toolbar←n.∆form.⎕NEW'Toolbar'(⊂'Coord' 'Pixel')
+
+ ∆←''
+ ∆,←⊂'Caption' '&Clear'
+ n.ClearLog←n.Toolbar.⎕NEW'Button'∆
+ n.ClearLog.onSelect←'OnClear'
+ n.ClearLog.Posn+←0 5
+
+ n.Label_RefreshRate←n.Toolbar.⎕NEW'Label'(⊂'Caption' '&Refresh rate:')
+ n.Label_RefreshRate.Posn+←0 30
+
+ ∆←''
+ ∆,←⊂'Size'(⍬ 40)
+ ∆,←⊂'Tip' 'In milli seconds'
+ ∆,←⊂'FieldType' 'Numeric'
+ ∆,←⊂'Value'parms.RefreshRate
+ ∆,←⊂'TipObj'n.Tip
+ n.RefreshRate←n.Toolbar.⎕NEW'Edit'∆
+ n.RefreshRate.onChange←'OnChangeRefreshRate'
+ n.RefreshRate.Posn[1]-←10
+
+ n.Label_NoOfRecors←n.Toolbar.⎕NEW'Label'(⊂'Caption' '&Number of records:')
+ n.Label_NoOfRecors.Posn+←0 30
+
+ ∆←''
+ ∆,←⊂'Size'(⍬ 80)
+ ∆,←⊂'Tip' 'How many records shall be displayed'
+ ∆,←⊂'FieldType' 'Numeric'
+ ∆,←⊂'Value'parms.NoOfRecords
+ ∆,←⊂'TipObj'n.Tip
+ n.NoOfRecords←n.Toolbar.⎕NEW'Edit'∆
+ n.NoOfRecords.onChange←'OnChangeNoOfRecordsSize'
+ n.NoOfRecords.Posn[1]-←10
+
+ ∆←''
+ ∆,←⊂'Size'(⍬ 80)
+ ∆,←⊂'Tip' 'Bring the GUI to the front when the log files changes'
+ ∆,←⊂'TipObj'n.Tip
+ ∆,←⊂'Style' 'Check'
+ ∆,←⊂'Caption' '&On top'
+ n.OnTop←n.Toolbar.⎕NEW'Button'∆
+ n.OnTop.Posn[1]+←25
+
+ ∆←''
+ ∆,←⊂'Style' 'Check'
+ ∆,←⊂'Tip' 'Pauses the updating background process. The size will still be updated.'
+ ∆,←⊂'Caption' '  Free&ze'
+ ∆,←⊂'TipObj'n.Tip
+ n.Freeze←n.Toolbar.⎕NEW'Button'∆
+ n.Freeze.onSelect←'OnToggleFreeze'
+ n.Freeze.Posn+←0 40
+
+⍝Done

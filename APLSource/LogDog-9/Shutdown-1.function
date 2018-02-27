@@ -1,0 +1,8 @@
+ {r}←Shutdown n
+ r←⍬
+ {0::⍬ ⋄ ⎕NUNTIE ⍵.∆tno}n
+ :If ##.APLTreeUtils.IsDevelopment
+     →
+ :Else
+     ⎕OFF
+ :EndIf

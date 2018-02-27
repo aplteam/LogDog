@@ -1,0 +1,10 @@
+ AddRecentFile←{
+     n←⍵
+     l←⎕WN n.RecentFiles
+     _←{0::⍬ ⋄ {0::⍬ ⋄ ⍵.Close}¨⍵}⍣(↑0<⍴l)⊣l
+     n.∆RecentFiles∪←⊂n.∆filename
+     n.∆RecentFiles←(20⌊⍴,n.∆RecentFiles)↑n.∆RecentFiles
+     n.RecentFiles_←(1+⍳⍴n.∆RecentFiles)n.RecentFiles.{⎕NEW'MenuItem'(⊂'Caption'(' &',(⍕⍺),'. ',⍵))}¨n.∆RecentFiles
+     n.RecentFiles_.onSelect←⊂'OnOpenRecentFile'
+     ⍬
+ }

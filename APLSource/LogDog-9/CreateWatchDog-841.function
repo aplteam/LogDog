@@ -1,0 +1,10 @@
+ CreateWatchDog←{
+ ⍝ Refresh Timer that updates the Viewer whenever something was
+ ⍝ added to the currently opened log file.
+     n←⍵
+     ∆←''
+     ∆,←⊂'Interval'n.∆Parms.RefreshRate
+     n.Timer←n.∆form.⎕NEW'Timer'∆
+     n.Timer.onTimer←'OnRefresh'
+     n
+ }

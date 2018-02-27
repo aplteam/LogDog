@@ -1,0 +1,17 @@
+ {r}←GetRecentFilesAndFoldersFromRegistry n;rk;l
+ r←⍬
+ rk←GetLogDogRegKey,'RecentFiles'
+ :If ~0∊⍴l←##.WinReg.GetString rk
+     l←';'##.APLTreeUtils.Split l
+ :AndIf ~0∊⍴l←(##.FilesAndDirs.IsFile¨l)/l
+     n.RecentFiles_←(1+⍳⍴l)n.RecentFiles.{⎕NEW'MenuItem'(⊂'Caption'(' &',(⍕⍺),'. ',⍵))}¨l
+     n.RecentFiles_.onSelect←⊂'OnOpenRecentFile'
+ :EndIf
+ rk←GetLogDogRegKey,'RecentFolders'
+ :If ~0∊⍴l←##.WinReg.GetString rk
+     l←';'##.APLTreeUtils.Split l
+ :AndIf ~0∊⍴l←(##.FilesAndDirs.IsDir¨l)/l
+     n.RecentFolders_←(1+⍳⍴l)n.RecentFolders.{⎕NEW'MenuItem'(⊂'Caption'(' &',(⍕⍺),'. ',⍵))}¨l
+     n.RecentFolders_.onSelect←⊂'OnOpenRecentFolder'
+ :EndIf
+⍝Done

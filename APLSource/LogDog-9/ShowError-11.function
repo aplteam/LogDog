@@ -1,0 +1,10 @@
+ ShowError←{
+     ∆←''
+     ∆,←⊂'Caption' 'LogDog crash'
+     info←'Sorry, LogDog has crashed. Please send a bug report to kai@aplteam.com'
+     ∆,←⊂'Text'info
+     ∆,←⊂'Btns' 'OK'
+     ∆,←⊂'Style' 'Error'
+     rf←⎕NEW'MsgBox'∆
+     ⍬⊣⎕DQ rf
+ }

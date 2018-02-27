@@ -1,0 +1,8 @@
+ TellAcreAboutChange←{
+     ∆Ref←⍺
+     name←⍵
+     ~∆Ref.p.notifyAcre:⍬
+     9=⎕SE.⎕NC'acre':{'No open projects'≡⍵:'' ⋄ ⍵}⎕SE.UCMD'acre.SetChanged ',name  ⍝ There was a time when acre 3 returned a message as result; remove when fixed.
+     9≠#.⎕NC'acre':⍬
+     #.acre.SetChanged name
+ }

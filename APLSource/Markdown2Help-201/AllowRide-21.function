@@ -1,0 +1,12 @@
+ {r}←AllowRide(port waitFlag);rc
+ r←⍬
+ {}3502⌶0
+ rc←3502⌶'Serve::',⍕port
+ :If rc≠0
+     11 ⎕SIGNAL⍨'Ride error when resetting connection string to "',('Serve::',⍕port)'"; RC=',⍕rc
+ :EndIf
+ rc←3502⌶1
+ :If ~rc∊0 ¯1 32 64
+     11 ⎕SIGNAL⍨'Ride error when trying to activate Ride; RC=',⍕rc
+ :EndIf
+ {}{_←⎕DL ⍵ ⋄ ∇ ⍵}⍣(⊃waitFlag)⊣1     ⍝ Endless loop that allows us to have a RIDE very early

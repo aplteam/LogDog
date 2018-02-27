@@ -1,0 +1,10 @@
+ OnWatchFolder←{
+     (no path)←⍺
+     rf←↑⍵
+     n←Get_n rf
+     0=GetYoungestFileFromFolder n path:1
+     _←rf.Close
+     _←0 OpenFile n
+     _←{6::⍬ ⋄ ⍵.Close ⍬}n.WatchFolderTimer
+     ⍬
+ }

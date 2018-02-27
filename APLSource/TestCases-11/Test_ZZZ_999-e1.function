@@ -1,0 +1,24 @@
+ R←Test_ZZZ_999(stopFlag batchFlag);v;n;d;xml;rf;f1;f2;⎕TRAP
+ ⍝ Check the "Version" function and publish.config and history.txt
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+ R←∆Failed
+
+ rf←#._LogDog.LogDog
+
+⍝ First we check whether "Version" returns a valid result:
+ (n v d)←rf.Version
+ f1←~5≤⍴v
+ f1∨←2≠'.'+.=v
+ f1∨←~∧/⎕D∊⍨v~'.'
+
+ f1∨←10≠⍴d
+ f1∨←d[4 7+⎕IO]∨.≠'-'
+ f1∨←~∧/⎕D∊⍨d~'-'
+
+ :If f1
+     ⎕←'Result of the "Version" function is invalid.'
+ :EndIf
+
+ →FailsIf f1
+
+ R←∆OK

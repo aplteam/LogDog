@@ -1,0 +1,6 @@
+ SaveRecentFileAndFolders←{
+     n←⍵
+     _←SaveRecentFiles⍣(↑~0∊⍴n.∆RecentFiles)⊣n
+     _←SaveRecentFolders⍣(↑~0∊⍴n.∆RecentFolders)⊣n
+     ⍬
+ }

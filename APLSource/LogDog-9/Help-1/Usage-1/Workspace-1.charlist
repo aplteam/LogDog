@@ -1,0 +1,15 @@
+# Workspace
+
+Load the workspace and call the function `#.LogDog.Run` with a right argument.
+
+The right argument can be one of:
+
+* Empty vector. LogDog will just show the GUI. You have to issue the "Open file" or the "Investigate folder" 
+  menu command or you drag and drop a file or a folder onto the GUI.
+* A filename. LogDog will view that file.
+* A folder. LogDog will investigate the folder for any files with the extension "log". If it can find one it 
+  will put it on display. If there are several it will choose the youngest one. 
+
+Make sure that enough memory is available. 64MB is recommended.                                                                                                                                                                                                                                                                                                                                                  
+
+The workspace requires at least version 15.0 to be available on your machine.                                                                                                                                                                                                                                                                                                                                    

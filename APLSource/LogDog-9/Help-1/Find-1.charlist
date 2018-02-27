@@ -1,0 +1,49 @@
+# Find
+
+When you call the "Find" menu command - or press Ctrl+F - then first of all auto-scolling is switched off for you.
+This fact is made obvious by having a check box "Freeze" on the dialog that is both ticked and inactive.
+Therefore it cannot be unticked.
+
+Updates are switched off because "Find" does not make too much sense with auto-scrolling being active.
+
+Any search is performed from bottom to top. Therefore the bottom-most hit is highlighted first. When you select 
+"Find next" from the menu (or press F3) then the next one from the bottom is is highlighted etc. The number of 
+hits (and, after performing "Find next", the remaining hits) is displayed in the status bar.
+
+The "Find" dialog gives you two options: the self-explaining "Case sensitive" option and the "Interpret as Regular 
+Expression" option. When interpreted as a regular expression certain characters in your search string have a 
+special meaning. When the option is not checked then those characters *don't* have that special meaning.
+
+If you want to search for a number but you don't want the line numbers to be searched as well then you must use 
+a regular expression for the serach.
+
+Assuming a log file were every line carries a line number like this:
+
+~~~
+00001999 This is a record in the log file
+~~~
+
+The following expression searches for `99` but not within the line numbers.
+
+~~~
+      ^\\s{0,8}[0-9]{1,9}\\s.*99                                                                                                                                                                                                                                                                                                                                                                                                               
+~~~   
+
+That's what this statement means:                                                                                                                                                                                                                                                                                                                                                                                                        
+
+* `^` = start a the beginning of any line.
+* `\s` = look for white space (<Tab>, space, <Return>...).
+* `{0,8}` = between zero and up to 8 of those. That's because we assume that there won't be more than 999999999 records in a log file.
+* `[0-9]` = digits between 0 and 9 (=all digits).
+* `{1,9}` = between 1 and up to 9 of those.
+* `\s` = look for a white space (<Tab>, space, <Return>...).
+* `.*` = any characters
+* `99` = literally "99".
+
+That will find "99" anywhere but in the line numbers.
+
+If you are after the exact number "99" then add `\b` (for "boundary"):
+
+~~~
+      ^\\s{0,8}[0-9]{1,9}\\s.*\\b99\\b                                                                                                                                                                                                                                                                                                                                                                                                         
+~~~

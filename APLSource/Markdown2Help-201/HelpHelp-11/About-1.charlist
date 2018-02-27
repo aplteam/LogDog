@@ -1,0 +1,25 @@
+[DATA]:index='About ⋄ History of Markdown2Help ⋄ Markdown2Help'
+
+# About Markdown2Help
+
+`Markdown2Help` sprang into existence as FlipDB's internal help system. With
+[FlipDB](http://www.carlislegroup.com/products/flipdb) the goal was to implement as many things
+as possible in Dyalog APL in order to have as much control as possible.
+
+In July 2014 [Carlisle Group](https://www.carlislegroup.com) decided to generalize the concept
+and make it independent from FlipDB. It was also decided to make it part of the
+[ APLTree](http://aplwiki.com/CategoryAplTree) project on the APL wiki.
+
+The name of that version was `APLTreeHelp`. The source of the actual help pages were D-functions
+returning vectors of two-element vectors with a tag and content.
+
+At that time `APLTreeHelp` also became the help system for [acre](http://aplwiki.com/acre), Phil
+Last's excellent APL Code Management System.
+
+In 2016 it was decided to keep the source in variables which contain Markdown. Because this was
+a change of paradigm a new project `Markdown2Help` was created. The functionality has not changed
+however.
+
+`APLTreeHelp` as well as `Markdown2Help` were both implemented by Kai Jaeger. 
+[Kai Jaeger on LinkedIn](https://www.linkedin.com/in/kaijaeger).
+

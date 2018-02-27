@@ -1,0 +1,8 @@
+ n←{size}CreateFont n;∆
+ size←{0<⎕NC ⍵:⍎⍵ ⋄ n.∆Parms.DefaultFontSize}'size'
+ ∆←''
+ ∆,←⊂'PName' 'APL385 Unicode'
+ ∆,←⊂'Size'size
+ n.Font←⎕NEW'Font'∆
+ n.Viewer.FontObj←n.Font
+⍝Done

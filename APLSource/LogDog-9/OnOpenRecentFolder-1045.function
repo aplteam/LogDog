@@ -1,0 +1,12 @@
+ {r}←OnOpenRecentFolder msg;rf;n;folder
+ r←⍬
+ rf←↑msg
+ n←Get_n rf
+ folder←{⍵↓⍨1+⍵⍳' '}##.APLTreeUtils.dlb rf.Caption
+ :If GetYoungestFileFromFolder n folder
+     OpenFile n
+     n.∆CurrentDir←folder
+ :Else
+     CreateFolderTimer n folder
+     TellAboutTimer folder
+ :EndIf

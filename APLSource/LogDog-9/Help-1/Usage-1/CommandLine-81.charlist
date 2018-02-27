@@ -1,0 +1,21 @@
+# CommandLine
+
+You can specify the name of the file to be watched via the command line. You can also specify the
+`NoOfRecords` parameter which has a default value of 5000.
+
+Example:
+
+~~~
+C:\dyalog.exe -noOfRecords=5000 -file=MyLogFile C:\LogDog.dws
+~~~
+
+Or:
+
+~~~
+C:\LogDog.exe C:\LogDog.dws -noOfRecords=5000 -file=MyLogFile
+~~~
+
+Note that you can specify a directory
+rather than a file. In that case LogDog will view the youngest file with the extension "log" it
+can find within that directory.
+

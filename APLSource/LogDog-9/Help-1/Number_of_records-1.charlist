@@ -1,0 +1,7 @@
+# Number of records
+
+5000 records (that's the default) should be enough to allow LogDog to fullfil its purpose. 
+Specify less than 5000 on a slow machine.
+
+Note that you cannot increase this value beyond 100000. This is because with higher values
+performance would become a problem even on very fast machines. 

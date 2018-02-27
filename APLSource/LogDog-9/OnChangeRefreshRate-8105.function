@@ -1,0 +1,7 @@
+ OnChangeRefreshRate←{
+     rf←↑⍵
+     n←Get_n rf
+     n.∆Parms.RefreshRate=rf.Value:1
+     n.Timer.Interval←n.∆Parms.RefreshRate←rf.Value
+     1
+ }

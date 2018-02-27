@@ -1,0 +1,5 @@
+ OnRecentFiles←{
+     rf←↑⍵
+     n←Get_n rf
+     .
+ }

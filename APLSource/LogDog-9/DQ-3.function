@@ -1,0 +1,4 @@
+ {r}←DQ name;res
+ r←⍬
+ res←⎕DQ name
+⍝Done

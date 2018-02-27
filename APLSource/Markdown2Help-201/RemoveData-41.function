@@ -1,0 +1,7 @@
+ RemoveData←{
+     md←A.dlb ⍵
+     0=+/b←'['=↑¨md:md
+     b←b\'[data]:'∘{⍺≡(⍴⍺)↑⍵}¨A.Lowercase b/md
+     0=+/b:md
+     (~b)/md
+ }

@@ -1,0 +1,7 @@
+ SaveRecentFolders←{
+     n←⍵
+     l←1↓∊';',¨n.∆RecentFolders
+     rk←GetLogDogRegKey,'recentFolders'
+     _←##.WinReg.PutString rk l
+     ⍬
+ }

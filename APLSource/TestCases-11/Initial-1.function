@@ -1,0 +1,8 @@
+ Initial
+ #.Tester.EstablishHelpersIn ⍬
+ ∆Path←CreateWorkFolder ⍬
+ {}StartLogFileWriter ∆Path,'\MyLog.log'
+ :Repeat
+     ⎕DL 0.2
+ :Until #.FilesAndDirs.Exists ∆Path,'\ProcessID'
+⍝Done

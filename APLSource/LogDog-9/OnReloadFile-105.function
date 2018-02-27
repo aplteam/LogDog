@@ -1,0 +1,5 @@
+ OnReloadFile←{
+     rf←↑⍵
+     n←Get_n rf
+     .
+ }

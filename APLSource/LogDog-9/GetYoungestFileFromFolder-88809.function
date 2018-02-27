@@ -1,0 +1,13 @@
+ GetYoungestFileFromFolder←{
+⍝ Returns 0 if `path` is empty or contains just folders, otherwise 1.
+⍝ As a side effect n.∆filename is assigned the name of the youngest file found, if any.
+     (n path)←⍵
+     (names timestamps type)←0 3 1(⎕NINFO⍠1)path,'\*.log'
+     0∊⍴names:0
+     (names timestamps)←(2=type)∘/¨names timestamps
+     0∊⍴names:0
+     vec←##.DateAndTime.Timestamp2DayDecimal⊃timestamps
+     youngest←{⍵⍳⌈/⍵}⍋vec
+     n.∆filename←youngest⊃names
+     1
+ }

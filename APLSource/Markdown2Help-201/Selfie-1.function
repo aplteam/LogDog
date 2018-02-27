@@ -1,0 +1,15 @@
+ {r}←Selfie parms;ps;source
+⍝ Runs Markdown2Help's own help in developer's mode.\\
+⍝ The right argument might be either an empty vector or a parameter
+⍝ space. If is is the latter than the contents is merged with the
+⍝ result or `CreateParms ⍬`, with the right argument taking precedence.\\
+⍝ **Note:** always forces the help system to be recompiled.
+ ps←CreateParms parms
+ ps.helpCaption←'Markdown2Help''s Help'
+ ps.source←HelpHelp
+ ps.expand←'None'
+ ps.visible←1
+ r←1 New ps
+ source←(0⊃A.SplitPath ⎕WSID),'..\Markdown2Help\Files\FlipDB-Team.png'
+ 1 ⎕MKDIR ps.folderName,'\Images\'
+ {}source File.CopyFilesTo ps.folderName,'\Images\'

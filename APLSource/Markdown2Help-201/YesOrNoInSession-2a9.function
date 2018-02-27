@@ -1,0 +1,10 @@
+ bool←YesOrNoInSession msg;flag;answer
+ flag←0
+ :Repeat
+     ⎕←msg
+     ⎕←'(Enter "y" or "n")'
+     answer←¯1↑⍞
+     flag←answer∊'YyNn!'
+ :Until flag
+ ⍎('!'=answer)/'.'
+ bool←answer∊'Yy'

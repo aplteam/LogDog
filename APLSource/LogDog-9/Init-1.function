@@ -1,0 +1,37 @@
+ {parms}←Init filename
+ {}2035⌶'RealPixel'
+ FixCurrentDirectory filename
+ #.CursorObj←0
+ parms←⎕NS''
+ parms.RefreshRate←500
+ parms.NoOfRecords←5000
+ parms.BlockSize←100000
+ parms.CloseEvent←9999
+ parms.DefaultFontSize←16
+ :If 0∊⍴filename
+     parms.Path←↑1 ⎕NPARTS''
+ :ElseIf (¯1↑filename)∊'/\'
+     parms.Path←filename
+ :Else
+     parms.Path←↑1 ⎕NPARTS filename
+ :EndIf
+ parms.SearchText←''
+ parms.CaseSensitive←0
+ parms.RegExSearch←0
+ parms.keys←⎕NS''
+ parms.keys.AltF4←115 4
+ parms.keys.Escape←27 0
+ parms.keys.CtrlW←87 2
+ parms.keys.Home←36 0
+ parms.keys.CtrlHome←36 2
+ parms.keys.End←35 0
+ parms.keys.CtrlEnd←35 2
+ parms.keys.PgUp←33 0
+ parms.keys.PgDn←34 0
+ parms.keys.CtrlF←70 2
+ parms.keys.F3←114 0
+ parms.keys.AltZ←90 4
+ parms.keys.AltB←66 4
+ parms.keys.AltR←82 4
+ parms.keys.AltC←67 4
+⍝Done

@@ -1,0 +1,7 @@
+ OnSelectOkButtonInSelectDir←{
+     rf←↑⍵
+     n2←Get_n rf
+     n←Get_n n2.##
+     n2.BrowseBox.∆Result←n2.BrowseBox.Target
+     1
+ }

@@ -1,0 +1,7 @@
+ EnforceDelay←{
+     (cpu hits)←⍵               ⍝ original AI value and number of hits
+     val←((2⊃⎕AI)-cpu)÷1000     ⍝ The delay
+     (1<val):⍬                  ⍝ More than 1 sec? Get out!
+     ⎕DL val×hits>0             ⍝ Execute delay
+     ⍝
+ }

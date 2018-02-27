@@ -1,0 +1,11 @@
+ CreateFolderTimer←{
+⍝ This timer is called once every second. Its purpose is to find out
+⍝ whether a file has turned up in ⍵[2] which is a folder.
+     (n path)←⍵
+     ∆←''
+     ∆,←⊂'Interval' 1000
+     n.WatchFolderTimer←n.∆form.⎕NEW'Timer'∆
+     n.WatchFolderTimer.onTimer←'OnWatchFolder'(n path)
+     n.SB_Info.Text←'Folder ',path,' is watched...'
+     1:r←⍬
+ }

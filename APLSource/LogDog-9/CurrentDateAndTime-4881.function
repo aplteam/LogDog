@@ -1,0 +1,4 @@
+ CurrentDateAndTime←{
+     dt←⍵                                ⍝ DateTime
+     ##.APLTreeUtils.FormatDateTime dt   ⍝ Formatted DateTime
+ }

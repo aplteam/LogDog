@@ -1,0 +1,8 @@
+ {r}←InvestigateCurrentDir n;filename;was
+ r←⍬
+ was←n.∆filename
+ :If GetYoungestFileFromFolder n n.∆CurrentDir
+ :AndIf was≢n.∆filename
+     ⎕NUNTIE n.∆tno
+     OpenFile n
+ :EndIf

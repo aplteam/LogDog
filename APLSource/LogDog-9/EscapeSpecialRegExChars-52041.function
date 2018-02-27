@@ -1,0 +1,6 @@
+ EscapeSpecialRegExChars←{
+     r←⍵
+     0=+/b←r∊'.^$*+?()[{\|':r
+     (b/r)←'\',¨b/r
+     ↑,/r
+ }

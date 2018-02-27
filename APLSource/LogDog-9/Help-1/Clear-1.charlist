@@ -1,0 +1,3 @@
+# Clear
+
+The "Clear" button just removes everything from the GUI. It does *not* touch the log file of course. 
