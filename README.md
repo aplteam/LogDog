@@ -28,7 +28,3 @@ There are different ways in which LogDog can be used:
 
 Note that rather than specifying a specific log file you can also specify a folder. LogDog will then investigate the folder. If it can find files with the extension ".log" in it then it will start viewing the youngest one. If it cannot find any log files in that folder then it will start a timer and keep watching the folder.
 
-
-### Using the workspace LogDog.dws
-
-Naturally this requires Dyalog APL to be installed on your machine, and it has to be version 15.0 or better.
