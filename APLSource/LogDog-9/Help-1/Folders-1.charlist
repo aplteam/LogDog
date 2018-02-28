@@ -1,8 +1,0 @@
-# Folders
-
-When you specify a folder then LogDog will investigate that folder. Depending on the outcome
-different things will happen:
-
-* If the folder contains files with the extension `.log` then the youngest one will be opened.
-* If the folder does not contain any files with the extension `.log` then a Timer will be created. 
-  The folder will then be constantly watched.

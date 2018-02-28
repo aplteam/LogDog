@@ -15,7 +15,7 @@ Expression" option. When interpreted as a regular expression certain characters 
 special meaning. When the option is not checked then those characters *don't* have that special meaning.
 
 If you want to search for a number but you don't want the line numbers to be searched as well then you must use 
-a regular expression for the serach.
+a regular expression for the search.
 
 Assuming a log file were every line carries a line number like this:
 

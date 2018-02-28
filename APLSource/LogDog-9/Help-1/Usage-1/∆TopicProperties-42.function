@@ -1,6 +1,6 @@
  ∆TopicProperties←{
-⍝ This function is needed by the APLTreeHelp system.
-⍝ You can edit this function from the APLTreeHelp GUI via the context menu.
+⍝ This function is needed by the Markdown2Help system.
+⍝ You can edit this function from the Markdown2Help GUI via the context menu.
 ⍝ *** NOTE:
 ⍝     Make only changes to this function that affect the explicit result.
 ⍝     Any other changes will eventually disappear because these functions are rebuild
@@ -16,7 +16,5 @@
 ⍝ [;2] active flag.
 ⍝ [;3] developmentOnly flag; 1=the corresponding node does not show in user mode.
      r←0 4⍴''
-     r⍪←'EXE' '' 1 0
-     r⍪←'Workspace' '' 1 0
      r
  }

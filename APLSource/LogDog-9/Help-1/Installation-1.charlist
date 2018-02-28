@@ -1,8 +1,0 @@
-# Installation
- 
-There is no installation. Just copy what you've downloaded from the APL wiki into any folder
-and that's it really. See →[Usage] for details.
-
-Note that LogDog writes crash data into `%LOCALAPPDATA\LogDog` where it should have the right 
-to create and write files. It does not matter whether LogDog has the right to write to its
-own folder.

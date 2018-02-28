@@ -1,0 +1,12 @@
+# Command line options
+
+ LogDog consumes up to 64MB of memory by default. You can change this by specifying "MAXWS"
+ as a command line parameter. 
+ 
+ Examples:
+
+* `MAXWS=1024`
+* `MAXWS=10MB`
+* `MAXWS=1GB`                                                                                                                                                                                                                                                                                                                                                         
+
+Values that are not marked as "MB" or "GB" are interpreted as kilobytes.

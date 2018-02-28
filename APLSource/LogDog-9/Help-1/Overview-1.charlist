@@ -1,8 +1,13 @@
 # Overview
 
+LogDog is a log file watcher.
+
+Its purpose is to support a developer when working on an application that writes to a log file.
+Typically such an application does not provide any other source of information.
+
 ## What LogDog is good at
 
-LogDog is a log file watcher: new records are constantly added to the bottom, and LogDog always makes sure that 
+New records are constantly added to the bottom, and LogDog always makes sure that 
 the latest additions are visible (auto-scrolling).
 
 By default LogDog displays the last 5000 records of the log file. When this threshold is reached then 15% of 
@@ -12,9 +17,6 @@ threshold is reached again.
 ## What LogDog is less good at
 
 LogDog is *not* designed to scroll through very large log files and analyze them.
-
-Really large files pose also a problem in terms of memory. LogDog reads as many records as you specify, therefore 
-it needs the appropriate amout of memory for doing this.
 
 If the log file is not too big then you might display the entire file if you like, and you can perform search 
 operations on it. However, we wouldn't be too surprised in case you find LogDog too slow for really large files.

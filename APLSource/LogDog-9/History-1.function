@@ -1,6 +1,7 @@
  History
  ⍝ * 2.1.0
- ⍝   * Converted from the APL wiki to GitHub. The software as such remains unchanged.
+ ⍝   * Converted from the APL wiki to GitHub.
+ ⍝   * Has its own installer now.
  ⍝ * 2.0.1
  ⍝   * Version 2.0.0  waited for a Ride...
  ⍝ * 2.0.0
