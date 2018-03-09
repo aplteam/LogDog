@@ -1,4 +1,0 @@
- OnEditFromMainMenu←{
-     ∆Ref←##.Get∆Ref 0⊃⍵
-     ##.EditFromMainMenu ∆Ref
- }

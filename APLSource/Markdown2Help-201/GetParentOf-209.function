@@ -1,3 +1,0 @@
- r←∆Ref GetParentOf row;ElseIf
-⍝ Returns (Parent,TopicName) as text for a node and just (Parent) otherwise.
- r←↑∆Ref.d.tree[row;I.Parent]

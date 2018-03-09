@@ -1,4 +1,0 @@
- PolishIconFilename←{
-     r←'file://'{(⍴⍺)↓⍵}⍵
-     r↓⍨'/'=↑r
- }

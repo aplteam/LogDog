@@ -1,6 +1,0 @@
- EstablishCssFile←{
-⍝ Writes ⍺ (the CSS) to ⍵ (filename)
-     css←⍺
-     fn←⍵
-     WriteUtf8File fn css
- }

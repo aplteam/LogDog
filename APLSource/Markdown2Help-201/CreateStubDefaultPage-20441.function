@@ -1,8 +1,0 @@
- CreateStubDefaultPage←{
-     parent←⍵
-     r←''
-     r,←⊂'# ',A.Last parent
-     r,←⊂''
-     r,←⊂'Default page for node ',parent
-     r
- }

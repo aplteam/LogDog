@@ -1,3 +1,0 @@
- AllowedChars←{
-     '_∆',⎕D,⎕A,A.Lowercase ⎕A
- }

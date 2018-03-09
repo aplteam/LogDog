@@ -1,8 +1,0 @@
- SetVisible←{
-⍝ Use this to set the "visible" property (`∆Ref.p.visible`)
-     ∆Ref←⍺
-     was←∆Ref.p.visible
-     ∆Ref.p.visible←⍵
-     ∆Ref.Visible←⍵
-     was
- }

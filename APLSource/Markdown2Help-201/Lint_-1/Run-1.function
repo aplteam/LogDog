@@ -1,5 +1,0 @@
- {report}←Run(∆Ref source);buf;fns;ns;_;bool
-⍝ The workhorse; called by Markdown2Help.Lint
- report←0 1⍴''
- report⍪←∆Ref CheckAllLinks source
-⍝Done
