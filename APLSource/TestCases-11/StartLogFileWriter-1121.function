@@ -1,7 +1,7 @@
  handle←StartLogFileWriter filename;⎕WX;cmd;rc
  ⎕WX←3
  cmd←⊂'"',(↑#.GetCommandLineArgs),'"'
- cmd,←⊂'"',filename,'"'
+ cmd,←⊂'-filename="',filename,'"'
  cmd,←⊂'"',#.FilesAndDirs.PWD,'\Tests\WriteLogFile.dws"'
  :If 0
      cmd,←⊂'-lx'
