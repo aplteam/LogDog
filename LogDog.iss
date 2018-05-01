@@ -1,13 +1,13 @@
 ; This script is best executed by LogDog's "Make" utility.
 
-#define MyAppVersion "2.1.0"
+#define MyAppVersion "2.1.1.6"
 #define MyAppName "LogDog"
 #define MyAppExeName "LogDog.exe"
 #define MyAppPublisher "APL Team Ltd"
-#define MyAppURL "http://github.com/aplteam/LogDog"
+#define MyAppURL "https://github.com/aplteam/LogDog"
 #define MyAppIcoName "LogDog.ico"
 #define MyBlank " "
-#define TargetDir "Dest\"
+#define TargetDir "Dist\"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -40,9 +40,9 @@ Name: "english"; MessagesFile: "compiler:Default.isl"; LicenseFile: "License";
 Name: "{commonappdata}\{#MyAppName}"; Permissions: users-modify
 
 [Files]
-Source: "{#MyAppExeName}"; DestDir: "{app}";
-Source: "ReadMe.html"; DestDir: "{app}";
-Source: "LogDog.ico"; DestDir: "{app}";
+Source: "Dist\{#MyAppExeName}"; DestDir: "{app}";
+Source: "Dist\ReadMe.html"; DestDir: "{app}";
+Source: "Dist\LogDog.ico"; DestDir: "{app}";
 Source: {#MyAppIcoName}; DestDir: "{app}";
 Source: "C:\Windows\Fonts\apl385.ttf"; DestDir: "{fonts}"; FontInstall: "APL385 Unicode"; Flags: onlyifdoesntexist uninsneveruninstall
 Source: "LICENSE"; DestDir: "{app}"

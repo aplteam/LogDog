@@ -18,7 +18,7 @@
      ∆,←⊂'Style' 'Multi'
      info←'' ' LogDog' ' Log file watchdog'
      info,←⊂' Version ',↑{⍺,' from ',⍵}/1↓Version
-     info,←'' ' Written by Kai Jaeger' ' See http://aplwiki.com/LogDog'
+     info,←'' ' Written by Kai Jaeger' ' See https://github.com/aplteam/LogDog'
      info,←''(' Available memory: ',(⍕⌊⎕WA÷1048576),'MB')
      ∆,←⊂'Text'info
      ∆,←⊂'ReadOnly' 1

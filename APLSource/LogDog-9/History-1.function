@@ -1,4 +1,7 @@
  History
+ ⍝ * 2.1.1
+ ⍝   * "Details" on the LogDog.exe now shows proper information.
+ ⍝   * In the Task Manager LogDog now shows proper information.
  ⍝ * 2.1.0
  ⍝   * Converted from the APL wiki to GitHub.
  ⍝   * Has its own installer now.
