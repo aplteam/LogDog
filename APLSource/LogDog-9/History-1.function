@@ -1,26 +1,28 @@
  History
- ⍝ * 2.1.1
- ⍝   * "Details" on the LogDog.exe now shows proper information.
- ⍝   * In the Task Manager LogDog now shows proper information.
- ⍝ * 2.1.0
- ⍝   * Converted from the APL wiki to GitHub.
- ⍝   * Has its own installer now.
- ⍝ * 2.0.1
- ⍝   * Version 2.0.0  waited for a Ride...
- ⍝ * 2.0.0
- ⍝   * Prior to version 2.0 LogDog was not suitable for watching very large log files.
- ⍝     Now the size of the log file does not matter any more.
- ⍝
- ⍝     Note however that LogDog is still not suitable for log files that grow very fast.
- ⍝     Watching a log file with LogDog when thousands of records are added each second
- ⍝     defeats the purpose of LogDog anyway.
- ⍝   * The status bar now carries information about:
- ⍝     * The current size of the log file. This piece of information is updated even when
- ⍝       the "Freeze" check box is ticked.
- ⍝     * Time stamp of the last successful update. This changes only in case the log file
- ⍝       was actually changed.
- ⍝   * Improved help file.
- ⍝   * Location for crash files moved to `%LOCALAPPDATA%\LogDog\Errors\`.
- ⍝   * Bug fixes:
- ⍝     * When the workspace was loaded the WS name was treated as a log file name.
- ⍝   * Hosting namespace renamed from "LogViewer" to "LogDog".
+⍝ * 2.1.2
+⍝   * New version of Markdown2Help.
+⍝ * 2.1.1
+⍝   * "Details" on the LogDog.exe now shows proper information.
+⍝   * In the Task Manager LogDog now shows proper information.
+⍝ * 2.1.0
+⍝   * Converted from the APL wiki to GitHub.
+⍝   * Has its own installer now.
+⍝ * 2.0.1
+⍝   * Version 2.0.0  waited for a Ride...
+⍝ * 2.0.0
+⍝   * Prior to version 2.0 LogDog was not suitable for watching very large log files.
+⍝     Now the size of the log file does not matter any more.
+⍝
+⍝     Note however that LogDog is still not suitable for log files that grow very fast.
+⍝     Watching a log file with LogDog when thousands of records are added each second
+⍝     defeats the purpose of LogDog anyway.
+⍝   * The status bar now carries information about:
+⍝     * The current size of the log file. This piece of information is updated even when
+⍝       the "Freeze" check box is ticked.
+⍝     * Time stamp of the last successful update. This changes only in case the log file
+⍝       was actually changed.
+⍝   * Improved help file.
+⍝   * Location for crash files moved to `%LOCALAPPDATA%\LogDog\Errors\`.
+⍝   * Bug fixes:
+⍝     * When the workspace was loaded the WS name was treated as a log file name.
+⍝   * Hosting namespace renamed from "LogViewer" to "LogDog".
