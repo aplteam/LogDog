@@ -1,7 +1,0 @@
-[DATA]:index='Reset ⋄ Cleanup ⋄ Close all Markdown2Help GUIs ⋄ Untie files ⋄ Close files'
-
-# {r}←Reset
-
-This method not only closes the GUI representations of all instances of `Markdown2Help` currently
-active, it also unties all files associated with those instances.
-

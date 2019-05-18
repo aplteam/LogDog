@@ -1,13 +1,12 @@
 ; This script is best executed by LogDog's "Make" utility.
 
-#define MyAppVersion "2.1.2.10"
+#define MyAppVersion "2.2.0.48"
 #define MyAppName "LogDog"
-#define MyAppExeName "LogDog.exe"
 #define MyAppPublisher "APL Team Ltd"
 #define MyAppURL "https://github.com/aplteam/LogDog"
 #define MyAppIcoName "LogDog.ico"
 #define MyBlank " "
-#define TargetDir "Dist\"
+#define MyTargetDir "Dist\"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -23,8 +22,8 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf32}\{#MyAppPublisher}\{#MyAppName}
 DefaultGroupName={#MyAppPublisher}\{#MyAppName}
 AllowNoIcons=yes
-OutputDir={#TargetDir}
-OutputBaseFilename="SetUp_{#MyAppName}"
+OutputDir={#MyTargetDir}
+OutputBaseFilename="SetUp_{#MyAppName}_{#MyAppVersion}"
 Compression=lzma
 SolidCompression=yes
 SetupIconFile={#MyAppIcoName}
@@ -40,27 +39,28 @@ Name: "english"; MessagesFile: "compiler:Default.isl"; LicenseFile: "License";
 Name: "{commonappdata}\{#MyAppName}"; Permissions: users-modify
 
 [Files]
-Source: "Dist\{#MyAppExeName}"; DestDir: "{app}";
-Source: "Dist\ReadMe.html"; DestDir: "{app}";
-Source: "Dist\LogDog.ico"; DestDir: "{app}";
+Source: "{#MyTargetDir}{#MyAppName}.exe"; DestDir: "{app}"
+Source: "{#MyTargetDir}help\*"; DestDir: "{app}\Help"; Flags: recursesubdirs 
+Source: "{#MyTargetDir}ReadMe.html"; DestDir: "{app}";
+Source: "{#MyTargetDir}LogDog.ico"; DestDir: "{app}";
 Source: {#MyAppIcoName}; DestDir: "{app}";
 Source: "C:\Windows\Fonts\apl385.ttf"; DestDir: "{fonts}"; FontInstall: "APL385 Unicode"; Flags: onlyifdoesntexist uninsneveruninstall
 Source: "LICENSE"; DestDir: "{app}"
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 
-; ----------- During beta phase only:
+; ----------- During beta phase only (needed for a Ride):
 ;Source: "Conga30_32.dll"; DestDir: "{app}";
 ;Source: "Conga30ssl32.dll"; DestDir: "{app}";
 ; -----------
 
 [Icons]
-Name: "{group}\Start LogDog"; Filename: "{app}\{#MyAppExeName}"; WorkingDir: "{app}\";  IconFilename: "{app}\{#MyAppIcoName}" 
-Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\{#MyAppIcoName}"; Tasks: desktopicon
+Name: "{group}\Start LogDog"; Filename: "{app}\{#MyAppName}.exe"; WorkingDir: "{app}\";  IconFilename: "{app}\{#MyAppIcoName}" 
+Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppName}.exe"; IconFilename: "{app}\{#MyAppIcoName}"; Tasks: desktopicon
 
 [Run]
 Filename: "{app}\ReadMe.html"; Description: "View the README file"; Flags: postinstall shellexec skipifsilent
-Filename: "{app}\{#MyAppExeName}"; Description: "Launch LogDog"; Flags: postinstall skipifsilent nowait
+Filename: "{app}\{#MyAppName}.exe"; Description: "Launch LogDog"; Flags: postinstall skipifsilent nowait
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}";

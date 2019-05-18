@@ -1,5 +1,7 @@
  History
-⍝ * 2.1.2
-⍝   * New version of Markdown2Help.
+⍝ * 2.2.0
+⍝   * `Markdown2Help` replaced by `Laguntza`.
+⍝   * New version of the GUI utilities.
+⍝   * New "Make".
 ⍝\\
 ⍝ For information regarding older versions see <https://github.com/aplteam/LogDog/releases>
