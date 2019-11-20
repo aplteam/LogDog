@@ -1,0 +1,12 @@
+ History
+⍝ * 2.3.0
+⍝   * Help file polished.
+⍝   * Test cases now use the new `Tester2` class rather than the deprecated `Tester` class.
+⍝   * The `Make` workspace now uses the very latest version of `Maker`.
+⍝   * `#._dependencies` introduced as a preliminary for the coming package manager.
+⍝ * 2.2.0
+⍝   * `Markdown2Help` replaced by `Laguntza`.
+⍝   * New version of the GUI utilities.
+⍝   * New "Make".
+⍝\\
+⍝ For information regarding older versions see <https://github.com/aplteam/LogDog/releases>

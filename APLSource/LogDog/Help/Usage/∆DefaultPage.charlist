@@ -1,4 +1,4 @@
-# Command line options
+# Usage
 
 * Drag and drop a file or a folder onto the EXE.
 * Double-click the EXE and then drag and drop a file or a folder onto the GUI.
@@ -9,9 +9,4 @@ folder) the "Target" field in the "Properties" dialog of that shortcut.
 
  Note that the EXE consumes up to 64MB of memory by default. You can change this 
  by creating a shortcut or a BAT file and then specify "MAXWS" in the "Target" 
- field of the "Properties" dialog with an appropriate value. Examples:
-
-* `MAXWS=1024 ⍝` Interpreted as kilobytes
-* `MAXWS=10MB`
-* `MAXWS=1GB`                                                                                                                                                                                                                                                                                                                                                         
-
+ field. See →[*.Command_line_options] for details.

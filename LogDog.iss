@@ -1,6 +1,6 @@
 ; This script is best executed by LogDog's "Make" utility.
 
-#define MyAppVersion "2.2.0.48"
+#define MyAppVersion "2.3.0.51"
 #define MyAppName "LogDog"
 #define MyAppPublisher "APL Team Ltd"
 #define MyAppURL "https://github.com/aplteam/LogDog"

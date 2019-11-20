@@ -1,3 +1,0 @@
- r←Version
- ⍝ See also History
- r←(#.APLTreeUtils.Last⍕⎕THIS)'2.2.0.48' '2019-05-17'

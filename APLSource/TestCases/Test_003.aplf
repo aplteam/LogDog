@@ -2,16 +2,16 @@
 ⍝ Call LogDog on a "live" log file.
 ⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due tothe "batchFlag"
  ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
- R←∆Failed
+ R←T._Failed
 
  n←1 ##.LogDog.Run ∆Path,'\MyLog.log'
  ⎕DL 1
- →GoToTidyUp 9≠n.⎕NC'Viewer'
- →GoToTidyUp 0=noOf←⍴n.Viewer.Text
- →GoToTidyUp 0≠n.OpenFile.Active
- →GoToTidyUp 1≠n.CloseFile.Active
+ →T.GoToTidyUp 9≠n.⎕NC'Viewer'
+ →T.GoToTidyUp 0=noOf←≢n.Viewer.Text
+ →T.GoToTidyUp 0≠n.OpenFile.Active
+ →T.GoToTidyUp 1≠n.CloseFile.Active
 
- R←∆OK
+ R←T._OK
 
 ∆TidyUp:
  :Trap 1 6 11 ⋄ {}⎕NQ n.∆form'Close' ⋄ :EndTrap

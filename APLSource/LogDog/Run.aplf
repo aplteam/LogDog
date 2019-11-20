@@ -17,9 +17,9 @@
  n←⎕NS''
  n.∆Parms←Init filename
  #.⎕SHADOW'ErrorParms'
- #.ErrorParms←#.HandleError.CreateParms
+ #.ErrorParms←##.HandleError.CreateParms
  #.ErrorParms.customFns←(⍕⎕THIS),'.ShowError'
- #.ErrorParms.errorFolder←'expand'#.FilesAndDirs.NormalizePath'%LOCALAPPDATA%\LogDog'
+ #.ErrorParms.errorFolder←'expand'##.FilesAndDirs.NormalizePath'%LOCALAPPDATA%\LogDog'
  ⎕TRAP←##.HandleError.SetTrap'#.ErrorParms'
  n←CreateGUI n filename
  GetRecentFilesAndFoldersFromRegistry n

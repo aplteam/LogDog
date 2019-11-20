@@ -2,14 +2,14 @@
 ⍝ Call LogDog without filename or folder - just the GUI should show
 ⍝ R gets one of: 0=Okay, 1=test case failed, ¯1=test case was not executed due tothe "batchFlag"
  ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
- R←∆Failed
+ R←T._Failed
 
  n←1 ##.LogDog.Run''
- →GoToTidyUp'Form'≢n.∆form.Type
- →GoToTidyUp 0≠n.⎕NC'Viewer'
- →GoToTidyUp 1≠n.OpenFile.Active
+ →T.GoToTidyUp'Form'≢n.∆form.Type
+ →T.GoToTidyUp 0≠n.⎕NC'Viewer'
+ →T.GoToTidyUp 1≠n.OpenFile.Active
 
- R←∆OK
+ R←T._OK
 
 ∆TidyUp:
  {}{0::⍬ ⋄ ⎕NQ ⍵.∆form'Close'}n
