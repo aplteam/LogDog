@@ -9,14 +9,15 @@
  ∆←''
  ∆,←⊂'Caption'caption
  ∆,←⊂'Accelerator'(79 2)
- flag←(0∊⍴filename)
+ flag←(0=≢filename)
  ∆,←⊂'Active'flag
  n.OpenFile←n.FileMenu.⎕NEW'MenuItem'∆
  n.OpenFile.onSelect←'OnOpenFile'
 
  ∆←''
- ∆,←⊂'Caption' 'Close file'
+ ∆,←⊂'Caption'('Close file',TAB,'Ctrl+W')
  ∆,←⊂'Active'(~flag)
+ ∆,←⊂'Accelerator'(87 2)
  n.CloseFile←n.FileMenu.⎕NEW'MenuItem'∆
  n.CloseFile.onSelect←'OnCloseFile'
 
@@ -71,7 +72,7 @@
  n.BiggerFont←n.EditMenu.⎕NEW'MenuItem'∆
  n.BiggerFont.onSelect←'OnBiggerFont'
 
- caption←'Increase font size',TAB,'Ctrl+-'
+ caption←'Decrease font size',TAB,'Ctrl+-'
  ∆←''
  ∆,←⊂'Caption'caption
  ∆,←⊂'Accelerator'(109 2)

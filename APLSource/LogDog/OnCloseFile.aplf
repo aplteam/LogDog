@@ -8,7 +8,7 @@
      n.∆form.AcceptFiles←1
      n.CloseFile.Active←0
      n.InvestigateDir.Active←1
-     _←{0∊⍴⍵:⍬ ⋄ {⍬⊣⍵.Active←1}¨⍵}n.RecentFiles_
+     _←{0=≢⍵:⍬ ⋄ {⍬⊣⍵.Active←1}¨⍵}n.RecentFiles_
      n.(Find FindNext).Active←0
      _←n.⎕EX'Viewer'
      n.SB_Info.Text←''

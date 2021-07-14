@@ -1,12 +1,14 @@
  OnChangeNoOfRecordsSize msg;viewerObj;n;noOfRecords;cursorWas
  viewerObj←↑msg
  n←Get_n viewerObj
- cursorWas←n.∆form.CursorObj
- n.∆form.CursorObj←1
- n.Viewer.Text←''
- n.SB_Info.Text←'Reading file...'
- n←InitialReadOfLogfile n
- n.SB_Info.Text←''
- n.∆form.CursorObj←cursorWas
- n←CreateWatchDog n
+ n.∆Parms.NoOfRecords←⌊0⌈viewerObj.Value
+ :If 0<⎕NC'n.Viewer'
+     cursorWas←n.∆form.CursorObj
+     n.∆form.CursorObj←1
+     n.SB_Info.Text←'Reading file...'
+     n←InitialReadOfLogfile n
+     n.SB_Info.Text←''
+     n.∆form.CursorObj←cursorWas
+     n←CreateWatchDog n
+ :EndIf
 ⍝Done

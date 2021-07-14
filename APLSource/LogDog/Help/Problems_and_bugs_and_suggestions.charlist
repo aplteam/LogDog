@@ -6,7 +6,7 @@ Please send an email to kai@aplteam.com.
 
 ## Bugs and Crashes                                                                                                                                
 
-When LogDog crashes it saves some files in the `%LOCALAPPDATA%\LogDog\Errors\` folder:
+When LogDog crashes it saves some files in the `%LOCALAPPDATA%LogDogErrors` folder:
 
 * An HTML file with details regarding the crash.
 * A Dyalog APL workspace that is a snapshot of LogDog.
@@ -16,7 +16,9 @@ Naturally all this might fail in case of a WS FULL.
 
 Feel free to send these files to kai@aplteam.com if you want the problem to be investigated.
 
-Note that the workspace is likely to contain some of the records of the log file you have
+Notes:
+
+* The workspace is likely to contain some of the records of the log file you have
 been watching.
 
-Note that there is no point in sending WS FULL crashes.                                                                                
+* There is no point in sending WS FULL crashes.                                                                                

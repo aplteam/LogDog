@@ -1,5 +1,20 @@
  History
-⍝ * 2.3.0
+⍝ * 3.0.0 ⋄ 2021-07-12
+⍝   * Bug fixes
+⍝     * Log files from Unix were not shown correctly since LogDog expected CRLF (Windows)
+⍝       as line separators.
+⍝     * The "Clear" button and several other controls including menu commands crashed when
+⍝       no log file was observed.
+⍝     * When the records of a log file did not start with date and time then handling of the
+⍝       number of records was incorrect.
+⍝     * LogDog tried to tie a log file for read+write. It should only ask for "read".
+⍝     * Ticking "On Top" had no affect.
+⍝   * The help file got polished.
+⍝   * Background colour settings for statusbar removed: no longer supported by Windows.
+⍝   * Internal changes
+⍝     * Uses Tatin packages now
+⍝     * Uses the new Laguntza for the help file
+⍝ * 2.3.0 ⋄ 2019-11-20
 ⍝   * Help file polished.
 ⍝   * Test cases now use the new `Tester2` class rather than the deprecated `Tester` class.
 ⍝   * The `Make` workspace now uses the very latest version of `Maker`.

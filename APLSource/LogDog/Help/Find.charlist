@@ -7,7 +7,7 @@ Therefore it cannot be unticked.
 Updates are switched off because "Find" does not make too much sense with auto-scrolling being active.
 
 Any search is performed from bottom to top. Therefore the bottom-most hit is highlighted first. When you select 
-"Find next" from the menu (or press F3) then the next one from the bottom is is highlighted etc. The number of 
+"Find next" from the menu (or press F3) then the next one from the bottom is highlighted etc. The number of 
 hits (and, after performing "Find next", the remaining hits) is displayed in the status bar.
 
 The "Find" dialog gives you two options: the self-explaining "Case sensitive" option and the "Interpret as Regular 
@@ -32,17 +32,17 @@ The following expression searches for `99` but not within the line numbers.
 That's what this statement means:                                                                                                                                                                                                                                                                                                                                                                                                        
 
 * `^` = start a the beginning of any line.
-* `\s` = look for white space (<Tab>, space, <Return>...).
+* `s` = look for white space (<Tab>, space, <Return>...).
 * `{0,8}` = between zero and up to 8 of those. That's because we assume that there won't be more than 999999999 records in a log file.
 * `[0-9]` = digits between 0 and 9 (=all digits).
 * `{1,9}` = between 1 and up to 9 of those.
-* `\s` = look for a white space (<Tab>, space, <Return>...).
+* `s` = look for a white space (<Tab>, space, <Return>...).
 * `.*` = any characters
 * `99` = literally "99".
 
 That will find "99" anywhere but in the line numbers.
 
-If you are after the exact number "99" then add `\b` (for "boundary"):
+If you are after the exact number "99" then add `\\b` (for "boundary"):
 
 ~~~
       ^\\s{0,8}[0-9]{1,9}\\s.*\\b99\\b                                                                                                                                                                                                                                                                                                                                                                                                         

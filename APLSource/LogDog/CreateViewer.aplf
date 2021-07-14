@@ -12,6 +12,7 @@
  n.∆form.CursorObj←1
  n.SB_Info.Text←'Loading log file...'
  n.Viewer←n.∆form.⎕NEW'Edit'∆
+ n.Viewer.onContextMenu←'OnContextMenu'
  n.Viewer.Text←,n.Viewer.Text
  n←CreateFont n
  ⎕NQ n.∆form'Flush'

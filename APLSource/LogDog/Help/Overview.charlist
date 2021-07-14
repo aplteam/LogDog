@@ -18,6 +18,8 @@ threshold is reached again.
 
 LogDog is *not* designed to scroll through very large log files and analyze them.
 
+LogDog can only process ASCII/ANSI files. UTF-8 is _not_ supported.
+
 If the log file is not too big then you might display the entire file if you like, and you can perform search 
 operations on it. However, we wouldn't be too surprised in case you find LogDog too slow for really large files.
 

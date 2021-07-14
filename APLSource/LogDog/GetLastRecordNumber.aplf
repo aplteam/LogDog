@@ -1,6 +1,7 @@
  GetLastRecordNumber←{
      n←⍵
-     r←{6::0 ⋄ ⍎⍵}{⍵↑⍨⍵⍳' '}##.APLTreeUtils.dlb↑¯1↑n.Viewer.Text
+     r←GetLastRecordNumber_ n
+     0=≢r:n.∆Parms.NoOfRecords
      0<r:r
      n.∆Parms.NoOfRecords
  }

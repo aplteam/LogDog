@@ -3,5 +3,7 @@
      keys←⊂⍵[4 5]
      keys∊n.∆Parms.keys.(AltF4 Escape CtrlW):n.∆form.Close
      allow←n.∆Parms.keys.(Home End CtrlEnd CtrlHome PgDn PgUp CtrlF F3 AltC AltB AltZ AltR)
+     n.∆Parms.keys.CtrlA≡⊃keys:0⊣n.Viewer.SelText←(0 0)((≢n.Viewer.Text),≢(¯1+≢n.Viewer.Text)⊃n.Viewer.Text)
+     n.∆Parms.keys.CtrlC≡⊃keys:CopySelectionToClipboard n
      keys∊allow ⍝ Ignore verything else
  }

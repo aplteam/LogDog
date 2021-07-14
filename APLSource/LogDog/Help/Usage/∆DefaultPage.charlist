@@ -5,8 +5,8 @@
 * Double-click the EXE and then use the "Open file" menu command.
 * Double-click the EXE and then use the "Investigate a folder..." menu command.
 * Create a shortcut to LogDoc.exe and add the name of the log file (or the
-folder) the "Target" field in the "Properties" dialog of that shortcut. 
+  folder) the "Target" field in the "Properties" dialog of that shortcut. 
 
- Note that the EXE consumes up to 64MB of memory by default. You can change this 
- by creating a shortcut or a BAT file and then specify "MAXWS" in the "Target" 
- field. See →[*.Command_line_options] for details.
+Note that the EXE consumes up to 64MB of memory by default. You can change this 
+by creating a shortcut or a BAT file and then specify "MAXWS" in the "Target" 
+field. See →[*.Command_line_options] for details.

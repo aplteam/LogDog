@@ -11,7 +11,7 @@
      n.(Find FindNext).Active←1
      n.∆form.AcceptFiles←0
      _←AddRecentFile⍣addAsRecentFile⊣n
-     _←{0∊⍴⍵:⍬ ⋄ {⍬⊣⍵.Active←0}¨⍵}n.RecentFiles_
+     _←{0=≢⍵:⍬ ⋄ {⍬⊣⍵.Active←0}¨⍵}n.RecentFiles_
      n.ClearLog.Active←1
      n←CreateViewer n
      n←PopulateViewer n

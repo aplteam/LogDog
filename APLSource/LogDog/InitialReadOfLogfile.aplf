@@ -1,4 +1,4 @@
- n←InitialReadOfLogfile n;buff;data;noOf;startByte
+ n←InitialReadOfLogfile n;data;noOf;startByte;bytes
  ⍝ We read blocks of `blockSize` or less characters from the end of the file
  ⍝ and then make them records.
  ⍝ We collect those records until we reach n.∆Parms.NoOfRecords records or
@@ -9,30 +9,27 @@
  ⍝ been established) or a subsequent call (triggered by the watch dog timer).
  ⍝ Returns the number of records read.
  n.∆FileSize←⎕NSIZE n.∆tno
- n.SB_FileSize.Text←'Log size: ',FormatFileSize n.∆FileSize
+ n.SB_FileSize.Text←'Log size: ',(FormatFileSize⌊n.∆FileSize÷1024),' KB'
  :If n.∆LastFileSize≡⍬
  :OrIf n.∆LastFileSize≢n.∆FileSize
-     n.SB_FileSize.BCol←0 255 0
      n.SB_LatestChange.Text←'Last change: ',CurrentDateAndTime QTS
      n.∆LastFileSize←n.∆FileSize
      n.∆form.OnTop←n.OnTop.State
- :Else
-     n.SB_FileSize.BCol←0
  :EndIf
  startByte←0⌈n.∆FileSize-n.∆Parms.BlockSize
- buff←data←''
+ bytes←data←''
  noOf←0
  :Repeat
-     :If 0∊⍴buff←(⎕NREAD n.∆tno,82,(n.∆Parms.BlockSize⌊n.∆FileSize),startByte)
+     :If 0=≢bytes←(⎕NREAD n.∆tno,82,(n.∆Parms.BlockSize⌊n.∆FileSize),startByte)
          :Leave
      :EndIf
-     noOf+←+/CRLF⍷buff
-     data←buff,data
-     startByte←0⌈startByte-⍴buff
- :Until (n.∆Parms.NoOfRecords≤noOf)∨(⍴data)=n.∆FileSize
+     noOf+←+/LF⍷bytes
+     data←bytes,data
+     startByte←0⌈startByte-≢bytes
+ :Until (n.∆Parms.NoOfRecords≤noOf)∨(≢data)=n.∆FileSize
  n.∆ReadLogFrom←⍴data
- data←CRLF ##.APLTreeUtils.Split data
- data←(-0∊⍴↑¯1↑data)↓data
+ data←LF ##.APLTreeUtils2.Split data
+ data←(-0=≢↑¯1↑data)↓data
  data←(-(⍴data)⌊n.∆Parms.NoOfRecords)↑data
  n.Viewer.Text←data
  n.Viewer.SelText←(2⍴1+⍴data),¨1

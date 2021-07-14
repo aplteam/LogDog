@@ -1,0 +1,6 @@
+ OnToggleOnTop←{
+     rf←↑⍵
+     n←Get_n rf
+     n.∆form.OnTop←~n.∆form.OnTop
+     ⍬
+ }

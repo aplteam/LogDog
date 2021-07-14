@@ -34,4 +34,7 @@
  parms.keys.AltB←66 4
  parms.keys.AltR←82 4
  parms.keys.AltC←67 4
+ parms.keys.CtrlA←65 2
+ parms.keys.CtrlC←67 2
+ parms.keys.ShiftEnd←35 1
 ⍝Done

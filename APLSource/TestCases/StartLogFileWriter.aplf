@@ -2,12 +2,12 @@
  ⎕WX←3
  cmd←⊂'"',(↑#.GetCommandLineArgs),'"'
  cmd,←⊂'-filename="',filename,'"'
- cmd,←⊂'"',##.FilesAndDirs.PWD,'\Tests\WriteLogFile.dws"'
+ cmd,←⊂'"',FilesAndDirs.PWD,'\Tests\WriteLogFile.dws"'
  :If 0
      cmd,←⊂'-lx'
  :EndIf
- rc←##.OS.WinExecute∊cmd,¨' '
+ rc←OS.WinExecute∊cmd,¨' '
  :Repeat
-     handle←##.WinSys.GetHandleFromCaption'LogDog_Test_LogFileWriter'
+     handle←WinSys.GetHandleFromCaption'LogDog_Test_LogFileWriter'
  :Until 0≠handle
 ⍝Done

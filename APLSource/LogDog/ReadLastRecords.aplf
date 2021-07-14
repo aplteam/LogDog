@@ -1,4 +1,4 @@
- upToDate←ReadLastRecords n;size;buff;fileSize;maxNumberOfBytes;noOfBytes;noOfRecords;maxNoOfRecords
+ upToDate←ReadLastRecords n;size;fileSize;maxNumberOfBytes;noOfBytes;noOfRecords;maxNoOfRecords;bytes
  ⍝ We read all data that has been written since the last read operation.
  ⍝ In case the max number of records is exceeded we reduce the number of
  ⍝ records shown plus 15%.
@@ -8,25 +8,23 @@
  ⍝ 1 : We are up-to-date.
  fileSize←⎕NSIZE n.∆tno
  :If fileSize≡n.∆LastFileSize
-     n.SB_FileSize.BCol←0
      n.∆form.OnTop←0
      upToDate←1
  :Else
      n.∆FileSize←fileSize
      :If n.Freeze.State
-         n.SB_FileSize.Text←'Log size: ',FormatFileSize n.∆FileSize
-         n.SB_FileSize.BCol←255 0 0
+         n.SB_FileSize.Text←'Log size: ',(FormatFileSize n.∆FileSize),' !'
          upToDate←0
      :Else
          maxNumberOfBytes←⌊⎕WA÷10
          noOfBytes←maxNumberOfBytes⌊fileSize-n.∆ReadLogFrom
-         buff←(⎕NREAD n.∆tno,82,noOfBytes,n.∆ReadLogFrom)
-         upToDate←noOfBytes=⍴buff
+         bytes←(⎕NREAD n.∆tno,82,noOfBytes,n.∆ReadLogFrom)
+         upToDate←noOfBytes=≢bytes
          :If 0<noOfBytes
              n.∆ReadLogFrom+←noOfBytes
-             buff←CRLF ##.APLTreeUtils.Split buff
-             buff←¯1↓⍣(0∊⍴↑¯1↑buff)⊣buff  ⍝ Drop last if empty
-             noOfRecords←⍴n.Viewer.Text←n.Viewer.Text,buff
+             bytes←LF ##.APLTreeUtils2.Split bytes
+             bytes←¯1↓⍣(0=≢∊⍴↑¯1↑bytes)⊣bytes  ⍝ Drop last if empty
+             noOfRecords←⍴n.Viewer.Text←n.Viewer.Text,bytes
              :If n.∆Parms.NoOfRecords<⍴noOfRecords
                  maxNoOfRecords←n.∆Parms.NoOfRecords-⌊n.∆Parms.NoOfRecords÷15 ⍝ 15% buffer
                  n.Viewer.Text←(-maxNoOfRecords)↑n.Viewer.Text
@@ -34,7 +32,6 @@
              n.Viewer.SelText←(2⍴1+noOfRecords),¨1
          :EndIf
          n.∆LastFileSize←fileSize
-         n.SB_FileSize.BCol←0 255 0
          n.SB_FileSize.Text←'Log size: ',FormatFileSize n.∆FileSize
          n.SB_LatestChange.Text←'Last change: ',CurrentDateAndTime QTS
          n.∆form.OnTop←n.OnTop.State

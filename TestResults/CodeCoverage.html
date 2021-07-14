@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Coverage</title>
+<meta charset="utf-8"/>
+<style>
+@media screen{
+    html {background-color: #FFFFF0;}
+body {
+    font-size: 16px;
+    font-family : Verdana, "Bitstream Vera Sans", "DejaVu Sans", Tahoma, Geneva, Arial, Sans-serif;
+    margin: 1em;
+}
+th, td {padding: 5px 10px;}
+th {text-align: left;}
+h1, h2, h3, h4, h5, h6 {color: #424242;}
+h1 {font-size: 22px;}
+h2 {font-size: 18px; margin-top: 2em; margin-bottom:0.3em;}
+tbody tr:nth-child(even) {background-color: #F0F0F0;}
+tbody tr:nth-child(odd) {background-color: #FAFAFA;}
+th {background-color: #E6E6E6;color: #424242;}
+table {border: silver 1px solid; font-size: 14px;font-family: APLFont, monospace;}
+code , code a {font-size: 14px; font-family: APLFont, monospace;}
+code.header {
+    font-size: 16px; 
+    font-family: APLFont, monospace; 
+    margin: 1.5em 0.5em 0 0.5em; 
+    padding:0;
+    display: block;
+}
+div.code-block {
+    border: 1px silver dashed;
+    background-color: #F2F2F2;
+    display: block;
+    margin: 0.5em 0.5em 0.5em 0.5em;
+    padding: 0.5em;
+}
+div.code-block code {display: block; white-space: pre-wrap; margin:0; padding:0; word-wrap: break-word;}
+.emphasize { font-weight: 800;}
+ul li, ol li {margin: 0.7em 0.2em;}
+.float-right {float:right;}
+.no-underline {    text-decoration :none;}
+.top-links {font-size:20px; padding-left: 0.6em;}
+.align-right {text-align: right;}
+#footer hr {margin-top:1.5em;}
+#footer p {margin-top:5px; padding-top:0; font-size: 9px;}
+@font-face {
+        font-family: "APLFont";
+    src:
+        local("APL385 Unicode"),
+        url("https://misc.aplteam.com/apl385.ttf") format("truetype");
+}}
+@media print{@page {size: portrait}
+@page {
+    margin: 1cm 1cm 1cm 1.75cm;
+    @bottom-right {
+        content: counter(page) " / " counter(pages);
+  }
+}
+body {
+    font: 12pt "Times New Roman", Times, serif;
+    line-height: 1.2;
+     /* CSS3 filter, at the moment Webkit only. Prefix it for future implementations */
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%); /* future-proof */
+}
+h1 {font-size: 18pt;}
+h2 {font-size: 16pt; margin-top: 10pt; margin-bottom: 3pt;}
+th, td {padding: 2pt 3pt;}
+th {text-align: left;background-color: #DBDBDB;}
+tbody tr:nth-child(odd) {background-color: #EDEDED;}
+table {
+    color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    font-size: 8pt;
+    font-family: APLFont, monospace;
+}
+div.keep-together {break-inside: avoid; break-before:auto;}
+table {border: silver 1pt solid;}
+code , code a {font-size: 8pt; font-family: APLFont, monospace;}
+code.header {
+    font-size: 8pt;
+    font-family: APLFont, monospace;
+    margin: 7pt 3pt 0 10pt;
+    padding:0;
+    display: block;
+}
+div.code-block {
+    border: 1pt silver dashed;
+    background-color: #F2F2F2;
+    display: block;
+    margin: 4pt 4pt 4pt 4pt;
+    padding: 4pt;
+}
+div.code-block code {display: block; white-space: pre-wrap; margin:0; padding:0; word-wrap: break-word;}
+.emphasize { font-weight: 800;}
+a {text-decoration: none;color: black;}
+ul li, ol li {margin: 8pt 3pt;}
+.no-print {display:none;}
+.align-right {text-align: right;}
+#footer hr {margin-top:1.5em;}
+#footer p {margin-top:5pt; padding-top:0; font-size: 6pt;}
+@font-face {
+        font-family: "APLFont";
+    src:
+        local("APL385 Unicode"),
+        url("https://misc.aplteam.com/apl385.ttf") format("truetype");
+}}
+</style>
+</head>
+<body>
+<h1 id="top">Coverage Report</h1>
+<p>Watched: 98 fns/opr within <code>#.LogDog.LogDog</code></p>
+<p>The test test suite was execute once:</p>
+<table>
+<thead>
+<tr><th>Executed at</th><th>APLVersion</th><th>Memory (MB)</th></tr>
+<thead>
+</tbody>
+<tr><td>2021-07-14 11:36:04</td><td>Windows-64 ⋄ 18.0.40684.0 ⋄ W ⋄ Development</td><td>92</td></tr>
+</tbody>
+</table>
+<p>Overall 36% of the testable code is  covered.</p>
+<p>(Comment lines, empty lines, all <code>:End</code>* lines etc. are all ignored)</p>
+<p>21 of the fns/opr are 100% covered.</p>
+<p>70 are not covered at all:</p>
+<table>
+<tbody>
+<tr><td>#.LogDog.LogDog.About</td></tr>
+<tr><td>#.LogDog.LogDog.AddRecentFile</td></tr>
+<tr><td>#.LogDog.LogDog.AddRecentFolder</td></tr>
+<tr><td>#.LogDog.LogDog.CheckForRide</td></tr>
+<tr><td>#.LogDog.LogDog.CloseWatchDog</td></tr>
+<tr><td>#.LogDog.LogDog.CopySelectionToClipboard</td></tr>
+<tr><td>#.LogDog.LogDog.CopyTextToClipboard</td></tr>
+<tr><td>#.LogDog.LogDog.CreateFindGUI</td></tr>
+<tr><td>#.LogDog.LogDog.CreateFolderTimer</td></tr>
+<tr><td>#.LogDog.LogDog.DQ</td></tr>
+<tr><td>#.LogDog.LogDog.DoesExistFileOrDir</td></tr>
+<tr><td>#.LogDog.LogDog.EscapeSpecialRegExChars</td></tr>
+<tr><td>#.LogDog.LogDog.Find</td></tr>
+<tr><td>#.LogDog.LogDog.GetAllSizesFor</td></tr>
+<tr><td>#.LogDog.LogDog.GetFilenameToBeOpened</td></tr>
+<tr><td>#.LogDog.LogDog.GetLastRecordNumber</td></tr>
+<tr><td>#.LogDog.LogDog.GetLastRecordNumber_</td></tr>
+<tr><td>#.LogDog.LogDog.Get_n</td></tr>
+<tr><td>#.LogDog.LogDog.Highlight</td></tr>
+<tr><td>#.LogDog.LogDog.InvestigateCurrentDir</td></tr>
+<tr><td>#.LogDog.LogDog.InvestigateDir</td></tr>
+<tr><td>#.LogDog.LogDog.InvestigateNewDir</td></tr>
+<tr><td>#.LogDog.LogDog.OnAbout</td></tr>
+<tr><td>#.LogDog.LogDog.OnBiggerFont</td></tr>
+<tr><td>#.LogDog.LogDog.OnChangeNoOfRecordsSize</td></tr>
+<tr><td>#.LogDog.LogDog.OnChangeRefreshRate</td></tr>
+<tr><td>#.LogDog.LogDog.OnClear</td></tr>
+<tr><td>#.LogDog.LogDog.OnCloseFile</td></tr>
+<tr><td>#.LogDog.LogDog.OnContextMenu</td></tr>
+<tr><td>#.LogDog.LogDog.OnDropFiles</td></tr>
+<tr><td>#.LogDog.LogDog.OnFind</td></tr>
+<tr><td>#.LogDog.LogDog.OnFindNext</td></tr>
+<tr><td>#.LogDog.LogDog.OnHelp</td></tr>
+<tr><td>#.LogDog.LogDog.OnInvestigateDir</td></tr>
+<tr><td>#.LogDog.LogDog.OnKeyPressInViewer</td></tr>
+<tr><td>#.LogDog.LogDog.OnOkInSearchForm</td></tr>
+<tr><td>#.LogDog.LogDog.OnOpenFile</td></tr>
+<tr><td>#.LogDog.LogDog.OnOpenRecentFile</td></tr>
+<tr><td>#.LogDog.LogDog.OnOpenRecentFolder</td></tr>
+<tr><td>#.LogDog.LogDog.OnQuit</td></tr>
+<tr><td>#.LogDog.LogDog.OnRecentFiles</td></tr>
+<tr><td>#.LogDog.LogDog.OnRecentFolders</td></tr>
+<tr><td>#.LogDog.LogDog.OnRefresh</td></tr>
+<tr><td>#.LogDog.LogDog.OnReloadFile</td></tr>
+<tr><td>#.LogDog.LogDog.OnRestoreFontSize</td></tr>
+<tr><td>#.LogDog.LogDog.OnSelectCancelButtonInOpenFile</td></tr>
+<tr><td>#.LogDog.LogDog.OnSelectCancelButtonInSelectDir</td></tr>
+<tr><td>#.LogDog.LogDog.OnSelectOkButtonInOpenFile</td></tr>
+<tr><td>#.LogDog.LogDog.OnSelectOkButtonInSelectDir</td></tr>
+<tr><td>#.LogDog.LogDog.OnSmallerFont</td></tr>
+<tr><td>#.LogDog.LogDog.OnToggleFreeze</td></tr>
+<tr><td>#.LogDog.LogDog.OnToggleOnTop</td></tr>
+<tr><td>#.LogDog.LogDog.OnWatchFolder</td></tr>
+<tr><td>#.LogDog.LogDog.OpenFile</td></tr>
+<tr><td>#.LogDog.LogDog.ReadLastRecords</td></tr>
+<tr><td>#.LogDog.LogDog.ReadLogFile</td></tr>
+<tr><td>#.LogDog.LogDog.SaveRecentFileAndFolders</td></tr>
+<tr><td>#.LogDog.LogDog.SaveRecentFiles</td></tr>
+<tr><td>#.LogDog.LogDog.SaveRecentFolders</td></tr>
+<tr><td>#.LogDog.LogDog.Search</td></tr>
+<tr><td>#.LogDog.LogDog.SearchWithRegEx</td></tr>
+<tr><td>#.LogDog.LogDog.ShowError</td></tr>
+<tr><td>#.LogDog.LogDog.ShowMsg</td></tr>
+<tr><td>#.LogDog.LogDog.Shutdown</td></tr>
+<tr><td>#.LogDog.LogDog.TellAboutTimer</td></tr>
+<tr><td>#.LogDog.LogDog.ToogleFreeze</td></tr>
+<tr><td>#.LogDog.LogDog.Version</td></tr>
+<tr><td>#.LogDog.LogDog.ViewHelp</td></tr>
+<tr><td>#.LogDog.LogDog.Help.∆TopicProperties</td></tr>
+<tr><td>#.LogDog.LogDog.Help.Usage.∆TopicProperties</td></tr>
+</tbody>
+</table>
+<div id="partly-covered" class="keep-together">
+<p>7 are partly covered:</p>
+<table>
+<thead>
+<tr><th style="text-align:left;">Function/Operator</th><th style="text-align:left;">Lines not executed</th><th style="text-align:left;">Coverage</th><th style="text-align:right;">≢</th></tr>
+</thead>
+<tbody>
+<tr><td>#.LogDog.LogDog.OpenLogFile</td><td>8←≢11-13,16-20</td><td>43%</td><td class="align-right">14</td></tr>
+<tr><td>#.LogDog.LogDog.FixCurrentDirectory</td><td>3,4</td><td>60%</td><td class="align-right">5</td></tr>
+<tr><td>#.LogDog.LogDog.GetFilenameFromCommandLine</td><td>4←≢7-10</td><td>60%</td><td class="align-right">10</td></tr>
+<tr><td>#.LogDog.LogDog.Work</td><td>15,20</td><td>88%</td><td class="align-right">16</td></tr>
+<tr><td>#.LogDog.LogDog.GetYoungestFileFromFolder</td><td>6</td><td>90%</td><td class="align-right">10</td></tr>
+<tr><td>#.LogDog.LogDog.InitialReadOfLogfile</td><td>13,23</td><td>91%</td><td class="align-right">23</td></tr>
+<tr><td>#.LogDog.LogDog.Init</td><td>13</td><td>97%</td><td class="align-right">36</td></tr>
+</tbody>
+</table>
+</div>
+<div id="footer">
+<hr>
+<p>Created by "CodeCoverage" version 0.7.2+40 from 2021-03-01</p>
+</div>
+</body>
+</html>

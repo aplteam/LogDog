@@ -1,0 +1,6 @@
+ r←CopyTextToClipboard n;cl
+ r←0
+ cl←⎕NEW⊂'Clipboard'
+ cl.Text←n.Viewer.Text
+ n.SB_Info.Text←'Log copied  to clipboard'
+⍝Done

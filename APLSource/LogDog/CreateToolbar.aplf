@@ -40,6 +40,7 @@
  ∆,←⊂'Style' 'Check'
  ∆,←⊂'Caption' '&On top'
  n.OnTop←n.Toolbar.⎕NEW'Button'∆
+ n.OnTop.onSelect←'OnToggleOnTop'
  n.OnTop.Posn[1]+←25
 
  ∆←''
@@ -49,6 +50,5 @@
  ∆,←⊂'TipObj'n.Tip
  n.Freeze←n.Toolbar.⎕NEW'Button'∆
  n.Freeze.onSelect←'OnToggleFreeze'
- n.Freeze.Posn+←0 40
 
 ⍝Done

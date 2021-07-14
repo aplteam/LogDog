@@ -1,16 +1,15 @@
  Cleanup;filename;pid;more;rc;en
  ⎕NUNTIE ⎕NNUMS
  filename←∆Path,'\ProcessID'
- :If ##.FilesAndDirs.Exists filename
- :AndIf 0≠pid←↑(//)⎕VFI ##.APLTreeUtils.ReadUtf8File filename
-     ##.WinSys.KillProcess pid
+ :If FilesAndDirs.Exists filename
+ :AndIf 0≠pid←APLTreeUtils2.ToNum(⊃FilesAndDirs.NGET filename)~⎕TC
+     {}OS.KillPID pid
  :EndIf
  ⎕DL 3
  :If 0<⎕NC'∆Path'
- :AndIf ##.FilesAndDirs.IsDir ∆Path
+ :AndIf FilesAndDirs.IsDir ∆Path
      ⎕NUNTIE ⎕NNUMS
-     (rc en more)←##.FilesAndDirs.RmDir ∆Path
+     (rc en more)←FilesAndDirs.RmDir ∆Path
      Assert 0=rc
      ⎕EX'∆Path'
  :EndIf
- ⎕EX'T'

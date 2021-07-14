@@ -2,6 +2,7 @@
      rf←↑⍵
      n←Get_n rf
      n.∆Parms.RefreshRate=rf.Value:1
+     0=n.⎕NC'Timer':1
      n.Timer.Interval←n.∆Parms.RefreshRate←rf.Value
      1
  }

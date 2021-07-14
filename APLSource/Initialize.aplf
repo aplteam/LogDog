@@ -1,0 +1,17 @@
+ {r}←Initialize;⎕TRAP;parent
+ ⎕TRAP←0 'S'
+ r←⍬
+ :If 0=≢⎕SE.acre.Projects''
+     {}⎕SE.UCMD'cd ',AcreConfig.ProjectFolder
+ :EndIf
+ ⎕WSID←AcreConfig.ProjectFolder,'project.dws'
+ parent←⍕⎕THIS
+ :If 0=⎕SE.⎕NC'Tatin'
+     ⎕SE.UCMD'Tatin.Loadtatin'
+ :AndIf 0<⎕SE.⎕NC'Tatin'
+     'LogDog requires the Tatin Package Manager to be available'⎕SIGNAL 6
+ :EndIf
+ {}⎕SE.Tatin.LoadDependencies(AcreConfig.ProjectFolder,'./packages/')parent
+ parent,←'.TestCases'
+ {}⎕SE.Tatin.LoadDependencies(AcreConfig.ProjectFolder,'./packages_dev/')parent
+⍝Done

@@ -3,14 +3,14 @@
  n2←⎕NS''
  ∆←''
  ∆,←⊂'Caption' 'Open log file'
- ∆,←⊂'Filters'(('*.log' 'Log files')('*.txt' 'Test files')('*.*' 'All files'))
+ ∆,←⊂'Filters'(('*.log' 'Log files')('*.txt' 'Text files')('*.*' 'All files'))
  ∆,←⊂'Directory'n.∆Parms.Path
  n2.FileBox←n.∆form.⎕NEW'FileBox'∆
  n2.FileBox.n←n2
  n2.FileBox.onFileBoxOK←'OnSelectOkButtonInOpenFile'
  n2.FileBox.onFileBoxCancel←'OnSelectCancelButtonInOpenFile'
  {}DQ n2.FileBox
- :If ~0∊⍴n2.FileBox.∆Result
+ :If 0≠≢n2.FileBox.∆Result
      n.∆filename←'expand'##.FilesAndDirs.NormalizePath n2.FileBox.∆Result
      r←1
  :EndIf

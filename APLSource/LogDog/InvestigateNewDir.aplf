@@ -9,7 +9,7 @@
  n2.BrowseBox.onFileBoxOK←'OnSelectOkButtonInSelectDir'
  n2.BrowseBox.onFileBoxCancel←'OnSelectCancelButtonInSelectDir'
  DQ n2.BrowseBox
- :If ~0∊⍴n2.BrowseBox.∆Result
+ :If 0≠≢n2.BrowseBox.∆Result
      :If r←GetYoungestFileFromFolder n n2.BrowseBox.∆Result
          OpenFile n
          n.∆CurrentDir←n2.BrowseBox.∆Result

@@ -1,7 +1,7 @@
  OnOpenRecentFile←{
      rf←↑⍵
      n←Get_n rf
-     n.∆filename←{⍵↓⍨1+⍵⍳' '}##.APLTreeUtils.dlb rf.Caption
+     n.∆filename←{⍵↓⍨1+⍵⍳' '}##.APLTreeUtils2.DLB rf.Caption
      _←OpenFile n
      n.InvestigateDir.Active←0
      ⍬

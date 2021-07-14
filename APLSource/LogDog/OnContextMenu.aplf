@@ -1,0 +1,12 @@
+ OnContextMenu←{
+     n←Get_n↑⍵
+     ref←⍎'mm'⎕WC⊂'Menu'
+     ∆←''
+     ∆,←⊂'Caption' 'Copy all'
+     ∆,←⊂'Event'('Select' 1)
+     ref.∆I1←⍎'I1'ref.⎕WC(⊂'MenuItem'),∆
+     name←↑,⎕DQ ref
+     0=≢name:0
+     'mm.I1'≡name:CopyTextToClipboard n
+     0
+ }

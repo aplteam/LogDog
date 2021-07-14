@@ -1,0 +1,4 @@
+ GetLastRecordNumber_←{
+     n←⍵
+     ##.APLTreeUtils2.ToNum{⍵↑⍨⍵⍳' '}##.APLTreeUtils2.DLB↑¯1↑n.Viewer.Text
+ }

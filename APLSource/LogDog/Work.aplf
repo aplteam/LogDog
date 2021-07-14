@@ -1,6 +1,6 @@
  {r}←testFlag Work(n filename)
  r←⍬
- :If ~0∊⍴filename
+ :If 0≠≢filename
      :If DoesExistFile filename
          n.∆filename←filename
          n←OpenLogFile n

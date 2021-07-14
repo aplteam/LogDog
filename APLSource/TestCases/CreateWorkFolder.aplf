@@ -1,6 +1,6 @@
  CreateWorkFolder←{
-     path←##.FilesAndDirs.GetTempPath,'LogDogTests'
-     _←##.FilesAndDirs.RmDir path
-     _←'Create!'##.FilesAndDirs.CheckPath path
+     path←FilesAndDirs.GetTempPath,'LogDogTests'
+     _←FilesAndDirs.RmDir path
+     _←'Create!'FilesAndDirs.CheckPath path
      path
  }

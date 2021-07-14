@@ -14,4 +14,4 @@ You can start the Help independently from LogDog by double-clicking `ViewHelp.ex
 For details go to <https://github.com/aplteam/LogDog>
     
 |Kai Jaeger  | 2014-04-27 |
-|Last update | 2019-05-17 |
+|Last update | 2021-07-12 |

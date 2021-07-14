@@ -11,7 +11,7 @@
  {}CheckForRide⍣0⊣4545 1
  testFlag←{0<⎕NC ⍵:⍎⍵ ⋄ 0}'testFlag'
  ⎕TRAP←##.HandleError.SetTrap ⍬
- :If 0∊⍴filename
+ :If 0=≢filename
      filename←GetFilenameFromCommandLine ⍬
  :EndIf
  n←⎕NS''

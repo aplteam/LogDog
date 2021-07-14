@@ -1,0 +1,14 @@
+ r←CopySelectionToClipboard n;cl;buff
+ r←0
+ cl←⎕NEW⊂'Clipboard'
+ :If =/0⊃¨n.Viewer.SelText
+     buff←(0 0⊃n.Viewer.SelText)⊃n.Viewer.Text
+     buff←(¯1+0 1⊃n.Viewer.SelText)↓buff
+     buff←(|-/1⊃¨n.Viewer.SelText)↑buff
+ :Else
+     buff←(1+-/⌽0⊃¨n.Viewer.SelText)↑((0 0⊃n.Viewer.SelText)-1)↓n.Viewer.Text
+     (0⊃buff)←((0 1⊃n.Viewer.SelText)-1)↓((0 0⊃n.Viewer.SelText)-1)⊃n.Viewer.Text
+     ((¯1+≢buff)⊃buff)←((1 1⊃n.Viewer.SelText)-1)↑((1 0⊃n.Viewer.SelText)-1)⊃n.Viewer.Text
+ :EndIf
+ cl.Text←buff
+⍝Done

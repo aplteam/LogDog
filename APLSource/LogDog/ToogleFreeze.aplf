@@ -3,10 +3,8 @@
  freeze←{0<⎕NC ⍵:⍎⍵ ⋄ n.Freeze.State}'freeze'
  n.Freeze.State←freeze
  :If freeze
-     n.SB_Info.Text←'Frozen!'
-     n.SB_Info.BCol←255 0 0
+     n.SB_Info.Text←'Frozen'
  :Else
      n.SB_Info.Text←''
-     n.SB_Info.BCol←0
  :EndIf
 ⍝Done

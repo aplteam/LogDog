@@ -7,4 +7,4 @@ You can change this; see →[*Command_line_options] for details.
 LogDog reads the records from the end of the file; therefore it will always succeed no matter how big the log 
 file is, and the size of the logfile has no impact on how fast LogDog puts a log file on display.
 
-If you increase the default (5000) on a large log file then LogDog's performance might be affected.
+If you increase the default (5000) on a large log file then LogDog's performance might be effected.

@@ -1,6 +1,7 @@
  OnFind←{
      rf←↑⍵
      n←Get_n rf
+     0=n.⎕NC'Viewer':⍬
      n.SB_Info.Text←''
      _←1 ToogleFreeze n
      n.Freeze.State←1

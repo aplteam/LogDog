@@ -10,6 +10,8 @@ It is not designed to view large log files, its purpose is rather to watch the c
 
 Of course you can put a stop onto the automated updates if you wish ("Freeze"), and you can also search the log file.
 
+Note that LogDog does not do UTF-8: Files are assumed to contain nothing but ANSI characters.
+
 ## Example
 
 ![](./LogDog-01.png)

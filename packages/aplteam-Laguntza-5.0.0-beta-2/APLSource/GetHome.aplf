@@ -1,0 +1,10 @@
+ GetHome←{
+⍝ Returns TatinVars.HOME if it exists and '' otherwise.
+⍝ It does not exist when Laguntza is a project rather than a package
+     ⍺←''
+     add←⍵
+     0<⎕NC'TatinVars.HOME':TatinVars.HOME,add
+     postfix←⍺
+     postfix,({((1⍴⍵)∊'/\')/'.'}add),add
+ ⍝Done
+ }
