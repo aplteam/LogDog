@@ -1,4 +1,4 @@
- upToDate←ReadLastRecords n;size;fileSize;maxNumberOfBytes;noOfBytes;noOfRecords;maxNoOfRecords;bytes
+ isUpToDate←ReadLastRecords n;size;fileSize;maxNumberOfBytes;noOfBytes;noOfRecords;maxNoOfRecords;bytes
  ⍝ We read all data that has been written since the last read operation.
  ⍝ In case the max number of records is exceeded we reduce the number of
  ⍝ records shown plus 15%.
@@ -9,27 +9,33 @@
  fileSize←⎕NSIZE n.∆tno
  :If fileSize≡n.∆LastFileSize
      n.∆form.OnTop←0
-     upToDate←1
+     isUpToDate←1
+ :ElseIf fileSize<n.∆LastFileSize
+     n←InitialReadOfLogfile n
+     isUpToDate←1
  :Else
      n.∆FileSize←fileSize
      :If n.Freeze.State
-         n.SB_FileSize.Text←'Log size: ',(FormatFileSize n.∆FileSize),' !'
-         upToDate←0
+         n.SB_FileSize.Text←'Log size: ',(FormatFileSize n.∆FileSize),' (!)'
+         isUpToDate←0
      :Else
          maxNumberOfBytes←⌊⎕WA÷10
-         noOfBytes←maxNumberOfBytes⌊fileSize-n.∆ReadLogFrom
-         bytes←(⎕NREAD n.∆tno,82,noOfBytes,n.∆ReadLogFrom)
-         upToDate←noOfBytes=≢bytes
+         noOfBytes←maxNumberOfBytes⌊fileSize-n.∆NextStartByte
+         bytes←(⎕NREAD n.∆tno,82,noOfBytes,n.∆NextStartByte)
+         isUpToDate←noOfBytes=≢bytes
          :If 0<noOfBytes
-             n.∆ReadLogFrom+←noOfBytes
-             bytes←LF ##.APLTreeUtils2.Split bytes
-             bytes←¯1↓⍣(0=≢∊⍴↑¯1↑bytes)⊣bytes  ⍝ Drop last if empty
-             noOfRecords←⍴n.Viewer.Text←n.Viewer.Text,bytes
-             :If n.∆Parms.NoOfRecords<⍴noOfRecords
+             n.∆NextStartByte+←noOfBytes
+             bytes←CRLF ##.APLTreeUtils2.Split bytes
+             bytes←¯1↓⍣(0=≢(¯1+≢bytes)⊃bytes)⊣bytes         ⍝ Drop last record if empty
+             n.Viewer.Text,←bytes
+             bytes←''
+             noOfRecords←≢n.Viewer.Text
+             :If n.∆Parms.NoOfRecords<≢noOfRecords          ⍝ Did it grow too large?
                  maxNoOfRecords←n.∆Parms.NoOfRecords-⌊n.∆Parms.NoOfRecords÷15 ⍝ 15% buffer
                  n.Viewer.Text←(-maxNoOfRecords)↑n.Viewer.Text
              :EndIf
              n.Viewer.SelText←(2⍴1+noOfRecords),¨1
+             n.Viewer.Visible←1
          :EndIf
          n.∆LastFileSize←fileSize
          n.SB_FileSize.Text←'Log size: ',FormatFileSize n.∆FileSize

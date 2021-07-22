@@ -4,7 +4,7 @@
      hit←,1↑n.∆Parms.Hits
      n.Viewer.SelText←Highlight hit
      n.∆Parms.Hits←1↓n.∆Parms.Hits
-     0∊⍴n.∆Parms.Hits:⍬⊣n.SB_Info.Text←{''}n.FindNext.Active←0
+     0=≢n.∆Parms.Hits:⍬⊣n.SB_Info.Text←{''}n.FindNext.Active←0
      n.SB_Info.Text←(⍕↑⍴n.∆Parms.Hits),' hit',((1<↑⍴n.∆Parms.Hits)/'s'),' remaining.'
      ⍬
  }

@@ -1,4 +1,4 @@
- n←InitialReadOfLogfile n;data;noOf;startByte;bytes
+ n←InitialReadOfLogfile n;noOf;startByte;bytes;data
  ⍝ We read blocks of `blockSize` or less characters from the end of the file
  ⍝ and then make them records.
  ⍝ We collect those records until we reach n.∆Parms.NoOfRecords records or
@@ -23,14 +23,19 @@
      :If 0=≢bytes←(⎕NREAD n.∆tno,82,(n.∆Parms.BlockSize⌊n.∆FileSize),startByte)
          :Leave
      :EndIf
-     noOf+←+/LF⍷bytes
-     data←bytes,data
+     noOf+←bytes+.=LF
      startByte←0⌈startByte-≢bytes
+     data←bytes,data
+     bytes←''
  :Until (n.∆Parms.NoOfRecords≤noOf)∨(≢data)=n.∆FileSize
- n.∆ReadLogFrom←⍴data
- data←LF ##.APLTreeUtils2.Split data
- data←(-0=≢↑¯1↑data)↓data
- data←(-(⍴data)⌊n.∆Parms.NoOfRecords)↑data
+ n.∆NextStartByte←≢bytes
+ data←CRLF ##.APLTreeUtils2.Split data
+ data←¯1↓⍣(0=≢(¯1+≢data)⊃data)⊣data             ⍝ Drop last record if empty
+ :If n.∆Parms.NoOfRecords<≢data
+     data←(-n.∆Parms.NoOfRecords)↑data          ⍝ Cut it back
+ :EndIf
+ n.Viewer.Visible←0
  n.Viewer.Text←data
  n.Viewer.SelText←(2⍴1+⍴data),¨1
+ n.Viewer.Visible←1
 ⍝Done

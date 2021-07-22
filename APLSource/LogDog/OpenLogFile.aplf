@@ -7,7 +7,7 @@
      :Trap 19
          n.∆tno←n.∆filename ⎕NTIE 0 64
          n.∆LastFileSize←⍬
-         n.∆ReadLogFrom←0
+         n.∆NextStartByte←0
      :Else
          ⎕DL 1
          tryFlag+←1

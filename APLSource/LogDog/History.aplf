@@ -1,4 +1,10 @@
  History
+⍝ * 3.0.1 ⋄ 2021-07-22
+⍝   * Bug fixes
+⍝     * Under some circumstances LogDog crashed on its first attempt to refresh the GUI
+⍝     * Due to Dyalog bug <01896> sometimes Linefeed got injected into the GUI. Circumvention
+⍝       implemented but at the expense of additonal memory usage.
+⍝     * When the size of a log file was reduced by some means, or re-created, then LogDog crashed.
 ⍝ * 3.0.0 ⋄ 2021-07-12
 ⍝   * Bug fixes
 ⍝     * Log files from Unix were not shown correctly since LogDog expected CRLF (Windows)

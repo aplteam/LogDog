@@ -2,7 +2,7 @@
  n2←CreateFindGUI n
  ⎕NQ n2.SearchFor'GotFocus'
  res←⎕DQ n2.∆form
- :If 0∊⍴res
+ :If 0=≢res
  :OrIf n2.Cancel≡↑res
      :Trap 6
          ⎕EX'n2.∆form.n'
