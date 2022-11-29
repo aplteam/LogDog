@@ -1,4 +1,0 @@
- Expand←{
-     ∆Ref←⍺
-     0⊣∆Ref.n.tree.Expanding ⍵          ⍝ Expand item ⍵
- }

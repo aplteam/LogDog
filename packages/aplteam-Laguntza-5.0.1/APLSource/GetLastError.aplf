@@ -1,3 +1,0 @@
- r←GetLastError
- '∆GetLastError'⎕NA'I4 kernel32.C32|GetLastError'
- r←∆GetLastError
