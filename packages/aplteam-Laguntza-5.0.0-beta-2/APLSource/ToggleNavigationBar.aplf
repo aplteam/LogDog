@@ -1,8 +1,0 @@
- {r}←ToggleNavigationBar ∆Ref
- r←⍬
- :If ∆Ref.n.showNavigation.State
-     ∆Ref.n.splitter.Posn←∆Ref.n.∆SplitterPosn
- :Else
-     ∆Ref.n.∆SplitterPosn←∆Ref.n.splitter.Posn
-     ∆Ref.n.splitter.Posn←0 0
- :EndIf

@@ -1,6 +1,0 @@
- GetContextMenuCaptionForDeleteItemFromTreeView←{
-     ∆Ref←⍺
-     in←⍵
-     (I.IsNode⊃∆Ref.d.tree[in;]):'Delete node...'
-     'Delete help page...'
- }

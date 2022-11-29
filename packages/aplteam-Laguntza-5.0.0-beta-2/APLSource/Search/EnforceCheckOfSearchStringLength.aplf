@@ -1,5 +1,0 @@
- EnforceCheckOfSearchStringLength←{
-⍝ ⍵ is the search string input combo.
-⍝ Returns always ⍬.
-     ⍬⊣⎕NQ ⍵ 9999
- }

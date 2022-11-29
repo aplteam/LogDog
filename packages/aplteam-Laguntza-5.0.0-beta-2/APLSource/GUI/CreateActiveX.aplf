@@ -1,7 +1,0 @@
- CreateActiveX←{
-     ∆Ref←⍵
-     n←∆Ref.n
-     n.WEBBROWSER←'WEBBROWSER'n.browser_sf.⎕WC'OCXClass' 'Microsoft Web Browser'
-     ⍬
- ⍝ Creates just the Internet Explorer ActiveX control
- }

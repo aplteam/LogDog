@@ -1,5 +1,0 @@
- OnIncreaseDefaultFontSizeForTV←{
-     ∆Ref←##.Get∆Ref↑⍵
-     _←∆Ref ##.ChangeTreeViewFontSize 1
-     ⍬
- }

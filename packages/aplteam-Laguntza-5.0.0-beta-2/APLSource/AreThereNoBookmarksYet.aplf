@@ -1,5 +1,0 @@
- AreThereNoBookmarksYet←{
-     ∆Ref←⍵
-     A←∆Ref.d.A
-     'i'∊↑¨A.Last∘⍕¨⎕WN ∆Ref.n.bookmarkMenu     ⍝ Bookmark items start their names with an "i"
- }

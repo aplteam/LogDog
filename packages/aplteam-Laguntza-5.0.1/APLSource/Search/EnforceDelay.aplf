@@ -1,1 +1,0 @@
- EnforceDelay←{1:shy←⎕DL ⍵}

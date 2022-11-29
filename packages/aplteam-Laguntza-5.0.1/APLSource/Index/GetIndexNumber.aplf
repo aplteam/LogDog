@@ -1,5 +1,0 @@
- GetIndexNumber←{
-     ∆Ref←⍺
-     row←⍵
-     row⊃1⊃⎕FREAD ∆Ref.f.(tieNo ∆index)
- }

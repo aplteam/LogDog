@@ -1,4 +1,5 @@
-.acre
-Dist/
+aplcore
+/Dist/
+CONTINUE.dws
+conga.crash
 Development.dws
-Dest/SetUp_LogDog.exe

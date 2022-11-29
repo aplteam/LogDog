@@ -1,5 +1,0 @@
- SelectTreeView←{
-     ∆Ref←⍵
-     ⎕NQ ∆Ref.n.contents'Select'
-⍝ Force TreeView to be THE tab
- }

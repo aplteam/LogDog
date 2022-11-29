@@ -1,5 +1,0 @@
- SeparateWords←{
-     Words←⍵
-     ((~Words∊AllowedChars ⍬)/Words)←' '
-     Words
- }

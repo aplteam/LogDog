@@ -1,5 +1,0 @@
- ProgressbarSet←{
-     (counter total)←⍵
-     ∆Ref.n.PB.Thumb←1⌈99⌊⌊100×counter÷total
-     ⍬
- }

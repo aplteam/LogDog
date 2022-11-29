@@ -1,3 +1,0 @@
- MarkUpAsInvalidLink←{
-     '<span class="invalidlink">(INVALID LINK: ',⍵,')</span>'
- }

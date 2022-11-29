@@ -1,4 +1,0 @@
- GetSep←{
-     ('⋄'∊⍵)⌷',⋄'
-⍝ Determines proper separator: "⋄" when found, otherwise ","
- }
