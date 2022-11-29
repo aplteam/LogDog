@@ -1,0 +1,14 @@
+ GetHome←{
+⍝ Returns TatinVars.HOME if it exists.
+⍝ It does not exist when Laguntza is a project rather than a package, so it tries to
+⍝ return CiderConfig.HOME then. If that is not possible either '' is returned.
+     ⍺←''
+     add←⍵
+     0<⎕NC'TatinVars.HOME':TatinVars.HOME,add
+     0<##.⎕NC'CiderConfig.HOME':##.CiderConfig.HOME,add
+     postfix←⍺
+     cd←↑⎕CMD'cd'
+     0=≢postfix,add:cd
+     cd,'\',({0=≢⍵:⍵ ⋄ ⍵,'\'}postfix),add
+ ⍝Done
+ }

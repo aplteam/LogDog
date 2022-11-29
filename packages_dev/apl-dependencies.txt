@@ -1,6 +1,6 @@
 aplteam-APLTreeUtils2-1.1.3
-aplteam-FilesAndDirs-5.0.3
-aplteam-Tester2-3.1.3
-aplteam-CodeCoverage-0.7.2
+aplteam-FilesAndDirs-5.2.1
+aplteam-Tester2-3.2.7
+aplteam-CodeCoverage-0.9.3
 aplteam-WinSys-5.0.1
 aplteam-OS-3.0.1
