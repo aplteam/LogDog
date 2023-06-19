@@ -2,7 +2,7 @@
  ⎕WX←3
  cmd←⊂'"',(↑#.GetCommandLineArgs),'"'
  cmd,←⊂'-filename="',filename,'"'
- cmd,←⊂'"',FilesAndDirs.PWD,'\Tests\WriteLogFile.dws"'
+ cmd,←⊂'"',##.CiderConfig.HOME,'\Tests\WriteLogFile.dws"'
  :If 0
      cmd,←⊂'-lx'
  :EndIf
